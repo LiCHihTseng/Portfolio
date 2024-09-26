@@ -64,7 +64,7 @@ export const Banner = () => {
                     <span
                       className="txt-rotate"
                       dataPeriod="1000"
-                      data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'
+                      data-rotate='[ "Current Student", "Web Designer", "UI/UX Designer" ]'
                     >
                       <span className="wrap">{text}</span>
                     </span>
@@ -77,15 +77,15 @@ export const Banner = () => {
                     type specimen book.
                   </p>
                   <button onClick={() => console.log("connect")}>
-                    Let’s Connect <ArrowRightCircle size={25} />
+                    Contact me! <ArrowRightCircle size={25} />
                   </button>
                 </div>
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={5}>
+          {/* <Col xs={12} md={6} xl={5}>
             <img src={headerImg} alt="Headder Img" />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </section>
