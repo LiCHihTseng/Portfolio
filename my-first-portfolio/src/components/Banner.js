@@ -1,11 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 // import "animate.css";
 import TrackVisibility from "react-on-screen";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 export const Banner = () => {
+  // framer motion animations
+  const { scrollYProgress } = useScroll(); // Removed targetRef for testing general scroll
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
@@ -52,7 +58,11 @@ export const Banner = () => {
   };
 
   return (
-    <section className="banner" id="home">
+    <motion.section
+      style={{ opacity }}
+      className="banner"
+      id="home"
+    >
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={12} xl={12}>
@@ -94,7 +104,20 @@ export const Banner = () => {
             </button>
           </Col>
         </Row>
+
+        {/* content */}
+
+        <motion.div style={{ scale }}>
+          <h2>Projects</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+        </motion.div>
       </Container>
-    </section>
+    </motion.section>
   );
 };
+
