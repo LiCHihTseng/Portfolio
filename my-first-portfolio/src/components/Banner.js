@@ -7,11 +7,20 @@ import TrackVisibility from "react-on-screen";
 import { useScroll, useTransform, motion } from "framer-motion";
 
 export const Banner = () => {
-  // framer motion animations
-  const { scrollYProgress } = useScroll(); // Removed targetRef for testing general scroll
+  // 使用 useRef 來綁定 section
+  const targetRef = useRef(null);
+
+  // 監控 targetRef 的滾動進度
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["end end", "start start"], // 可以根據需求調整
+  });
+
+  // 動態設置 opacity 和 scale
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
+  // 文字動畫邏輯
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
@@ -59,12 +68,13 @@ export const Banner = () => {
 
   return (
     <motion.section
-      style={{ opacity }}
+      style={{ opacity }} // 使用 opacity 動畫
+      ref={targetRef} // 將 targetRef 綁定到 section
       className="banner"
       id="home"
     >
       <Container>
-        <Row className="aligh-items-center">
+        <Row className="align-items-center">
           <Col xs={12} md={12} xl={12}>
             <TrackVisibility>
               {({ isVisible }) => (
@@ -107,7 +117,7 @@ export const Banner = () => {
 
         {/* content */}
 
-        <motion.div style={{ scale }}>
+        <motion.div style={{ scale }}> {/* 使用 scale 動畫 */}
           <h2>Projects</h2>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
