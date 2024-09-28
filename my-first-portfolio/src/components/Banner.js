@@ -17,8 +17,11 @@ export const Banner = () => {
   });
 
   // 動態設置 opacity 和 scale
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 0], [1, 0.5, 1]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const position = useTransform(scrollYProgress, (pos) => {
+    return pos === 1 ? "realative" : "fixed";
+  })
 
   // 文字動畫邏輯
   const [loopNum, setLoopNum] = useState(0);
@@ -74,7 +77,7 @@ export const Banner = () => {
       id="home"
     >
       <Container>
-        <Row className="align-items-center">
+        <motion.Row className="align-items-center" style = {{scale}}>
           <Col xs={12} md={12} xl={12}>
             <TrackVisibility>
               {({ isVisible }) => (
@@ -105,7 +108,7 @@ export const Banner = () => {
               )}
             </TrackVisibility>
           </Col>
-        </Row>
+        </motion.Row>
 
         <Row className="justify-content-md-center">
           <Col md="auto">
@@ -117,15 +120,10 @@ export const Banner = () => {
 
         {/* content */}
 
-        <motion.div style={{ scale }}> {/* 使用 scale 動畫 */}
-          <h2>Projects</h2>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-          </p>
-        </motion.div>
+
+
+
+
       </Container>
     </motion.section>
   );
