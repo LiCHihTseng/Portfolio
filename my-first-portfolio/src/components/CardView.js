@@ -10,17 +10,19 @@ import TrackVisibility from "react-on-screen";
 import { useScroll, useTransform, motion } from "framer-motion";
 import "./Card.css"; // Import CSS for Card component
 
-export const CardView = ({ children, imgSrc, ...props }) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll(); 
+export const CardView = ({}) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"], // Can be adjusted according to requirements.
+  });
 
-  const opacity = useTransform(scrollYProgress, [0.2, 0.8], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
   return (
     <Container>
-      {/* Apply opacity and scale directly to this section */}
-      <motion.section style={{ opacity }} ref={targetRef}>
+      <section>
         <div className="m-10">
           {/* 使用 scale 動畫 */}
           <h2>Projects</h2>
@@ -31,30 +33,39 @@ export const CardView = ({ children, imgSrc, ...props }) => {
             and scrambled it to make a type specimen book.
           </p>
         </div>
-        <Row className="justify-content-md-center m-5">
-          <Col>
-            <Card className="m-5">
-              <Card.Body>
-                <h1>Card Title</h1>
-                <p>This is some text within a card body.</p>
-                <img src="https://picsum.photos/200" alt="" />
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-
-        <Row className="justify-content-md-center m-5">
-          <Col>
-            <Card className="m-5">
-              <Card.Body>
-                <h1>Card Title</h1>
-                <p>This is some text within a card body.</p>
-                <img src="https://picsum.photos/200" alt="" />
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </motion.section>
+      </section>
+      <motion.div
+        ref={ref}
+        style={{ scale: scaleProgress, opacity: opacityProgress }}
+        className="mb-3 sm:mb-8 last:mb-0"
+      >
+        <section>
+          <Row className="justify-content-md-center m-5">
+            <Col>
+              <Card className="m-5">
+                <Card.Body>
+                  <h1>Card Title</h1>
+                  <p>This is some text within a card body.</p>
+                  <img src="https://picsum.photos/200" alt="" />
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </section>
+        <section>
+          <Row className="justify-content-md-center m-5">
+            <Col>
+              <Card className="m-5">
+                <Card.Body>
+                  <h1>Card Title</h1>
+                  <p>This is some text within a card body.</p>
+                  <img src="https://picsum.photos/200" alt="" />
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </section>
+      </motion.div>
     </Container>
   );
 };

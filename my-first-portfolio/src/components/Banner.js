@@ -7,21 +7,13 @@ import TrackVisibility from "react-on-screen";
 import { useScroll, useTransform, motion } from "framer-motion";
 
 export const Banner = () => {
-  // 使用 useRef 來綁定 section
   const targetRef = useRef(null);
-
-  // 監控 targetRef 的滾動進度
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["end end", "start start"], // 可以根據需求調整
+    offset: ["25% start", "end start"], // Can be adjusted according to requirements.
   });
 
-  // 動態設置 opacity 和 scale
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 0], [1, 0.5, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const position = useTransform(scrollYProgress, (pos) => {
-    return pos === 1 ? "realative" : "fixed";
-  })
+  const bannerOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   // 文字動畫邏輯
   const [loopNum, setLoopNum] = useState(0);
@@ -70,62 +62,56 @@ export const Banner = () => {
   };
 
   return (
-    <motion.section
-      style={{ opacity }} // 使用 opacity 動畫
-      ref={targetRef} // 將 targetRef 綁定到 section
-      className="banner"
-      id="home"
-    >
-      <Container>
-        <motion.Row className="align-items-center" style = {{scale}}>
-          <Col xs={12} md={12} xl={12}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
-                >
-                  <span className="tagline">Welcome to my Portfolio</span>
-                  <h1>
-                    {`Hi! I'm Jason`}{" "}
-                    <span
-                      className="txt-rotate"
-                      dataPeriod="1000"
-                      data-rotate='[ "[Current Student]", "[Web Designer]", "[UI/UX Designer]" ]'
-                    >
-                      <span className="wrap">{text}</span>
-                    </span>
-                  </h1>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </p>
-                </div>
-              )}
-            </TrackVisibility>
-          </Col>
-        </motion.Row>
+    <motion.div style={{ opacity: bannerOpacity }} ref={targetRef}>
+      <section
+        className="banner"
+        id="home"
+      >
+        <Container>
+          <Row className="align-items-center">
+            <Col xs={12} md={12} xl={12}>
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <div
+                    className={
+                      isVisible ? "animate__animated animate__fadeIn" : ""
+                    }
+                  >
+                    <span className="tagline">Welcome to my Portfolio</span>
+                    <h1>
+                      {`Hi! I'm Jason`}{" "}
+                      <span
+                        className="txt-rotate"
+                        dataPeriod="1000"
+                        data-rotate='[ "[Current Student]", "[Web Designer]", "[UI/UX Designer]" ]'
+                      >
+                        <span className="wrap">{text}</span>
+                      </span>
+                    </h1>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book.
+                    </p>
+                  </div>
+                )}
+              </TrackVisibility>
+            </Col>
+          </Row>
 
-        <Row className="justify-content-md-center">
-          <Col md="auto">
-            <button onClick={() => console.log("connect")}>
-              Contact me! <ArrowRightCircle size={25} />
-            </button>
-          </Col>
-        </Row>
+          <Row className="justify-content-md-center">
+            <Col md="auto">
+              <button onClick={() => console.log("connect")}>
+                Contact me! <ArrowRightCircle size={25} />
+              </button>
+            </Col>
+          </Row>
 
-        {/* content */}
-
-
-
-
-
-      </Container>
-    </motion.section>
+          {/* content */}
+        </Container>
+      </section>
+    </motion.div>
   );
 };
-
