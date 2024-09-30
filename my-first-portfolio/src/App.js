@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import './app.scss';
-import {NavBar} from './components/NavBar';
+import {NavBar} from './components/navbar/NavBar';
 import {Banner} from './components/Banner';
 import {CardView} from './components/CardView';
 

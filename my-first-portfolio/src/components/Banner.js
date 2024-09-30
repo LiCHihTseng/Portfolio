@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
+
 import { ArrowRightCircle } from "react-bootstrap-icons";
 // import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -21,7 +21,7 @@ export const Banner = () => {
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(200 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["[Current Student]", "[Web Designer]", "[UI/UX Designer]"];
+  const toRotate = ["Current Student", "Web Designer", "UI/UX Designer"];
   const period = 1000;
 
   useEffect(() => {
@@ -69,7 +69,7 @@ export const Banner = () => {
       >
         <Container>
           <Row className="align-items-center">
-            <Col xs={12} md={12} xl={12}>
+            <Col >
               <TrackVisibility>
                 {({ isVisible }) => (
                   <div
@@ -83,7 +83,7 @@ export const Banner = () => {
                       <span
                         className="txt-rotate"
                         dataPeriod="1000"
-                        data-rotate='[ "[Current Student]", "[Web Designer]", "[UI/UX Designer]" ]'
+                        data-rotate='[ "Current Student", "Web Designer", "UI/UX Designer" ]'
                       >
                         <span className="wrap">{text}</span>
                       </span>

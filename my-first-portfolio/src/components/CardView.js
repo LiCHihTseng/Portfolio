@@ -8,7 +8,7 @@ import headerImg from "../assets/img/header-img.svg";
 // import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { useScroll, useTransform, motion } from "framer-motion";
-import "./Card.css"; // Import CSS for Card component
+
 
 export const CardView = ({}) => {
   const ref = useRef(null);
