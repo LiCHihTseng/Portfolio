@@ -11,9 +11,15 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      <section id="Homepage">
       <Banner />
-
+      </section>
+      
+      <section id="Projects">
       <CardView imgAlt="Card" />
+      </section>
+
+      
     </div>
   );
 }

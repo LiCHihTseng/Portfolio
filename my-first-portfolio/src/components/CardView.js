@@ -23,16 +23,7 @@ export const CardView = ({}) => {
   return (
     <Container>
       <section>
-        <div className="m-10">
-          {/* 使用 scale 動畫 */}
-          <h2>Projects</h2>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-          </p>
-        </div>
+        <sectionheading>My Project</sectionheading>
       </section>
       <motion.div
         ref={ref}
@@ -52,19 +43,7 @@ export const CardView = ({}) => {
             </Col>
           </Row>
         </section>
-        <section>
-          <Row className="justify-content-md-center m-5">
-            <Col>
-              <Card className="m-5">
-                <Card.Body>
-                  <h1>Card Title</h1>
-                  <p>This is some text within a card body.</p>
-                  <img src="https://picsum.photos/200" alt="" />
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </section>
+
       </motion.div>
     </Container>
   );

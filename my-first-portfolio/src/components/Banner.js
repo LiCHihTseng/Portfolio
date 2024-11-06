@@ -8,14 +8,10 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 export const Banner = () => {
   const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["25% start", "end start"], // Can be adjusted according to requirements.
-  });
 
-  const bannerOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  // 文字動畫邏輯
+
+
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
@@ -62,7 +58,7 @@ export const Banner = () => {
   };
 
   return (
-    <motion.div style={{ opacity: bannerOpacity }} ref={targetRef}>
+    <motion.div  initial={{opacity:0, scale:0.5}} animate = {{opacity:1, scale: 1}} transition = {{duration:1  , delay: 1}}ref={targetRef}>
       <section
         className="banner"
         id="home"

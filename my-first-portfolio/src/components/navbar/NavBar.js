@@ -7,6 +7,7 @@ import navIcon2 from "../../assets/img/nav-icon2.svg";
 import navIcon3 from "../../assets/img/nav-icon3.svg";
 import { motion } from "framer-motion";
 import "./NavBar.scss";
+import Sidebar from "../sidebar/Sidebar";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -32,6 +33,7 @@ export const NavBar = () => {
 
   return (
     <Container>
+            <Sidebar/>
       <Row className="navbar">
         <Col md="auto" className="wrapper">
           <motion.img
@@ -55,6 +57,8 @@ export const NavBar = () => {
         </Col>
       </Row>
     </Container>
+
+
 
     // <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
     //   <Container>
