@@ -9,6 +9,24 @@ import headerImg from "../assets/img/header-img.svg";
 import TrackVisibility from "react-on-screen";
 import { useScroll, useTransform, motion } from "framer-motion";
 
+const variants = {
+  initial:{
+    x:-500,
+    y: 100,
+    opacity:0,
+  },
+  animate:{
+    x:0,
+    opacity:1,
+    y:0,
+    transition:{
+      duration:1,
+      staggerChildren:0.1,
+    }
+  },
+    
+}
+
 
 export const CardView = ({}) => {
   const ref = useRef(null);
@@ -20,17 +38,18 @@ export const CardView = ({}) => {
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
+
   return (
     <Container>
-      <section>
-        <sectionheading>My Project</sectionheading>
-      </section>
+
+        <motion.h1 variants={variants} initial="initial" whileInView="animate">My Project</motion.h1>
+
       <motion.div
         ref={ref}
-        style={{ scale: scaleProgress, opacity: opacityProgress }}
-        className="mb-3 sm:mb-8 last:mb-0"
+
+        variants={variants} initial="initial" whileInView="animate"
       >
-        <section>
+
           <Row className="justify-content-md-center m-5">
             <Col>
               <Card className="m-5">
@@ -42,7 +61,7 @@ export const CardView = ({}) => {
               </Card>
             </Col>
           </Row>
-        </section>
+
 
       </motion.div>
     </Container>

@@ -32,33 +32,30 @@ export const NavBar = () => {
   };
 
   return (
-    <Container>
-            <Sidebar/>
-      <Row className="navbar">
-        <Col md="auto" className="wrapper">
-          <motion.img
-            src={logo}
-            alt="Logo"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          />
-        </Col>
-        <Col xs lg="2" className="m-5 d-flex" style={{ gap: '20px' }}>
-          <a href="#" className="social">
+    <Container className="navbar">
+      <Sidebar />
+
+      <div className="wrapper">
+        <motion.img
+          src={logo}
+          alt="Logo"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+        />
+        <div className="social" >
+          <motion.a href="#" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}}>
             <img src={navIcon1} alt="" />
-          </a>
-          <a href="#" className="social">
+          </motion.a>
+          <motion.a href="#" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}}>
             <img src={navIcon2} alt="" />
-          </a>
-          <a href="#" className="social">
+          </motion.a>
+          <motion.a href="#" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}}>
             <img src={navIcon3} alt="" />
-          </a>
-        </Col>
-      </Row>
+          </motion.a>
+        </div>
+      </div>
     </Container>
-
-
 
     // <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
     //   <Container>

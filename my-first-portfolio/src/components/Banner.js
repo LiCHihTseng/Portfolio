@@ -6,6 +6,39 @@ import { ArrowRightCircle } from "react-bootstrap-icons";
 import TrackVisibility from "react-on-screen";
 import { useScroll, useTransform, motion } from "framer-motion";
 
+import './Banner.scss';
+
+
+const textVariants = {
+  initial:{
+    x:-500,
+    opacity:0,
+  },
+  animate:{
+    x:0,
+    opacity:1,
+    transition:{
+      duration:1,
+      delay: 1,
+      staggerChildren:0.1,
+    }
+  },
+    
+}
+
+const sliderVariants = {
+  initial:{
+    x:0,
+  },
+  animate:{
+    x:"220%",
+    transition:{
+      repeat:Infinity,
+      duration:20,
+    }
+  },
+    
+}
 export const Banner = () => {
   const targetRef = useRef(null);
 
@@ -57,15 +90,17 @@ export const Banner = () => {
     }
   };
 
+ 
+
   return (
-    <motion.div  initial={{opacity:0, scale:0.5}} animate = {{opacity:1, scale: 1}} transition = {{duration:1  , delay: 1}}ref={targetRef}>
+    <motion.div  variants={textVariants} initial="initial" animate="animate">
       <section
         className="banner"
         id="home"
       >
-        <Container>
+        <Container className="banner">
           <Row className="align-items-center">
-            <Col >
+            <Col lg={10} md={10} sm={10}>
               <TrackVisibility>
                 {({ isVisible }) => (
                   <div
@@ -97,7 +132,7 @@ export const Banner = () => {
             </Col>
           </Row>
 
-          <Row className="justify-content-md-center">
+          <Row >
             <Col md="auto">
               <button onClick={() => console.log("connect")}>
                 Contact me! <ArrowRightCircle size={25} />
