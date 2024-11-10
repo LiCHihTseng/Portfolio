@@ -114,17 +114,13 @@ export const Banner = () => {
                       <span
                         className="txt-rotate"
                         dataPeriod="1000"
-                        data-rotate='[ "Current Student", "Web Designer", "UI/UX Designer" ]'
+                        data-rotate='[ "Current Student", "Web Developer", "UI/UX Designer" ]'
                       >
                         <span className="wrap">{text}</span>
                       </span>
                     </h1>
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book.
+                      Currently studying on Univiersity of Queensland, Master of Interaction Design student
                     </p>
                   </div>
                 )}

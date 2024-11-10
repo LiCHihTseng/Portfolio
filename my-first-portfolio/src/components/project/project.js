@@ -1,7 +1,12 @@
-import React from "react";
 import { useRef } from "react";
 import "./project.scss";
-import { motion, useScroll, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 
 const items = [
   {
@@ -22,33 +27,71 @@ const items = [
     img: "https://picsum.photos/400",
     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
-  {
-    id: 4,
-    title: "Project Name3",
-    img: "https://picsum.photos/400",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-  {
-    id: 5,
-    title: "Project Name3",
-    img: "https://picsum.photos/400",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
 ];
+
+const variants = {
+  initial: {
+    // x:-500,
+    y: 100,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 const Single = ({ item }) => {
-  return <section className="h-screen snap-center">{item.title}</section>;
+  const ref = useRef(null);
+
+  // Using useScroll hook to track scroll progress for each section
+  const { scrollYProgress } = useScroll({
+    target: ref,
+  });
+
+  // Mapping scrollYProgress to the Y-axis transform for smooth animation
+  const yaxis = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+
+  return (
+    <section >
+      <div className="container">
+        <div className="wrapper">
+          <div className="imgContainer" ref={ref}>
+            <img src={item.img} alt="" />
+          </div>
+          <motion.div className="textContainer" style={{y: yaxis }}>
+            <h2>{item.title}</h2>
+            <p>{item.desc}</p>
+            <button>See Demo</button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export const Project = () => {
-  const testref = useRef();
-  const scrollYProgress = useScroll({
-    target: testref,
-    offset: ["end end", "start start"],
+  const ref = useRef(null);
+
+  // Using useScroll hook to track overall scroll progress
+  const { scrollYProgress } = useScroll({
+    target: ref,
+     // Adjust this to control when the scroll progress triggers
   });
-  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 20 });
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log(latest);
+  });
+
+  // Mapping scrollYProgress to scaleX for the progress bar animation
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   return (
-    <div className="project" ref={testref}>
+    <div className="project" ref={ref}>
       {/* Progress section with sticky positioning */}
       <div className="progressContainer">
         <h1>Featured Works</h1>
