@@ -55,16 +55,16 @@ const Single = ({ item }) => {
   });
 
   // Mapping scrollYProgress to the Y-axis transform for smooth animation
-  const yaxis = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+  // const yaxis = useTransform(scrollYProgress, [0, 1], [-100, 100]);
 
   return (
-    <section >
+    <section>
       <div className="container">
         <div className="wrapper">
           <div className="imgContainer" ref={ref}>
             <img src={item.img} alt="" />
           </div>
-          <motion.div className="textContainer" style={{y: yaxis }}>
+          <motion.div className="textContainer">
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
             <button>See Demo</button>
@@ -81,7 +81,7 @@ export const Project = () => {
   // Using useScroll hook to track overall scroll progress
   const { scrollYProgress } = useScroll({
     target: ref,
-     // Adjust this to control when the scroll progress triggers
+    // Adjust this to control when the scroll progress triggers
   });
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     console.log(latest);

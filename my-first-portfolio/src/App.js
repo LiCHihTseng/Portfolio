@@ -20,9 +20,9 @@
           <CardView imgAlt="Card" />
         </section>
 
-        <section className=" ">
+        {/* <section className=" ">
         <Project/>
-        </section>
+        </section> */}
 
           
         

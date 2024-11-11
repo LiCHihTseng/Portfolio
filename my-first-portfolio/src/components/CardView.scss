@@ -1,0 +1,41 @@
+.container {
+    .cardContainer {
+      gap: 40px;
+      background-color: var(--token-affa1b72-7c43-4531-b217-6ad9a97be289, rgba(255, 255, 255, 0.05));
+      border-radius: 12px;
+      display: flex;
+      flex-direction: row; // Default to side-by-side layout
+  
+      .textContainer {
+        padding: 20px;
+        width: 100%;
+      }
+  
+      .imgContainer {
+        width: 100%; /* Keep container width 100% to take up full space */
+        height: auto; /* Adjust height based on content or set specific value */
+        border-radius: 12px;
+  
+        img {
+          height: 100%;       /* Set the desired height */
+          width: auto;         /* Let the width adjust to maintain aspect ratio */
+          object-fit: cover;   /* Ensure image covers the container without distortion */
+          border-radius: 12px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+        }
+      }
+    }
+  
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .cardContainer {
+        flex-direction: column;
+  
+        .imgContainer {
+          height: auto; /* Let image adjust naturally for column layout */
+        }
+      }
+    }
+  }
+  
