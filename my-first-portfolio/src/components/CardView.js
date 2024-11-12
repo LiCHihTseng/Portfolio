@@ -10,6 +10,8 @@ import TrackVisibility from "react-on-screen";
 import "./CardView.scss";
 import { useScroll, useTransform, motion } from "framer-motion";
 
+import { useNavigate } from "react-router-dom";
+
 const variants = {
   initial: {
     y: 100,
@@ -50,10 +52,11 @@ const items = [
 const Single = ({ item }) => {
   const ref = useRef(null);
 
-  // Using useScroll hook to track scroll progress for each section
-  const { scrollYProgress } = useScroll({
-    target: ref,
-  });
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/project/${item.id}`, { state: item }); // Pass item data as state
+  };
 
   // Mapping scrollYProgress to the Y-axis transform for smooth animation
   // const yaxis = useTransform(scrollYProgress, [0, 1], [-100, 100]);
@@ -61,20 +64,19 @@ const Single = ({ item }) => {
   return (
     <motion.div
       className="m-5 d-flex cardContainer"
+      onClick={handleClick} // Only use handleClick to navigate
       ref={ref}
       variants={variants}
       initial="initial"
       whileInView="animate"
     >
-
-        <div className="textContainer">
-          <h1>Card Title</h1>
-          <p>This is some text within a card body.</p>
-        </div>
-        <div className="imgContainer">
-          <img src="https://picsum.photos/400" alt="" />
-        </div>
-
+      <div className="textContainer">
+        <h1>{item.title}</h1>
+        <p>{item.desc}</p>
+      </div>
+      <div className="imgContainer">
+        <img src={item.img} alt={item.title} />
+      </div>
     </motion.div>
   );
 };

@@ -1,33 +1,21 @@
-  import logo from "./logo.svg";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./app.scss";
+import { NavBar } from "./components/navbar/NavBar";
+import ProjectDetail from "./page/ProjectDetail";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Home } from "./page/Home";
 
-  import "./app.scss";
-  import { NavBar } from "./components/navbar/NavBar";
-  import { Banner } from "./components/banner/Banner";
-  import { CardView } from "./components/CardView";
+function App() {
+  return (
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/project/:id" element={<ProjectDetail />} /> {/* Updated path */}
+      </Routes>
+    </>
+  );
+}
 
-  import "bootstrap/dist/css/bootstrap.min.css";
-  import { Project } from "./components/project/project";
-
-  function App() {
-    return (
-      <div className="App">
-        <section id="Homepage" className="">
-          <NavBar />
-          <Banner />
-        </section>
-
-        <section id="Projects" className=" ">
-          <CardView imgAlt="Card" />
-        </section>
-
-        {/* <section className=" ">
-        <Project/>
-        </section> */}
-
-          
-        
-      </div>
-    );
-  }
-
-  export default App;
+export default App;
