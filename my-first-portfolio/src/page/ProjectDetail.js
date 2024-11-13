@@ -1,12 +1,16 @@
 import React from "react";
 import { useLocation, useParams } from "react-router-dom";
+import transition from "../transition";
+
+import Insync from "../assets/img/InSync-logo.png";
+
 
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
   {
     id: 1,
-    title: "Project Name",
-    img: "https://picsum.photos/400",
+    title: "InSync: The Digital Picture Frame",
+    img: Insync,
     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
   },
   {
@@ -40,7 +44,7 @@ const ProjectDetail = () => {
   if (!projectItem) return <div>No data available for project {id}.</div>;
 
   return (
-    <div className="p-48x bg-black">
+    <div className="p-48x">
       <h1>{projectItem.title}</h1>
       <img src={projectItem.img} alt={projectItem.title} />
       <p>{projectItem.desc}</p>

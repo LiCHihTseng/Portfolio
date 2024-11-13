@@ -5,10 +5,16 @@
       border-radius: 12px;
       display: flex;
       flex-direction: row; // Default to side-by-side layout
+      transition: border 0.3s ease; /* Add a smooth transition for border */
+
+      &:hover {
+        border: 2px solid white; /* Change border on hover */
+      }
   
       .textContainer {
         padding: 20px;
         width: 100%;
+        
       }
   
       .imgContainer {
@@ -18,11 +24,10 @@
   
         img {
           height: 100%;       /* Set the desired height */
-          width: auto;         /* Let the width adjust to maintain aspect ratio */
+          width: 100%;         /* Let the width adjust to maintain aspect ratio */
           object-fit: cover;   /* Ensure image covers the container without distortion */
           border-radius: 12px;
-          border-top-left-radius: 0px;
-          border-bottom-left-radius: 0px;
+         
         }
       }
     }
@@ -39,3 +44,11 @@
     }
   }
   
+  .card-bg{
+    background-color: var(--token-affa1b72-7c43-4531-b217-6ad9a97be289, rgba(255, 255, 255, 0.05));
+  }
+
+  .border-color{
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+  }

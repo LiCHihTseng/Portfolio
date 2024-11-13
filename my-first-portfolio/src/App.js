@@ -4,16 +4,21 @@ import "./app.scss";
 import { NavBar } from "./components/navbar/NavBar";
 import ProjectDetail from "./page/ProjectDetail";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Home } from "./page/Home";
+import Home from "./page/Home";
+import { AnimatePresence } from "framer-motion";
+
+// Import the necessary components and libraries
 
 function App() {
   return (
     <>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/project/:id" element={<ProjectDetail />} /> {/* Updated path */}
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }

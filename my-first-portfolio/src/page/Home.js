@@ -1,15 +1,15 @@
-import React from 'react'
-import { NavBar } from "../components/navbar/NavBar";
+import React from 'react';
 import { Banner } from "../components/banner/Banner";
 import { CardView } from "../components/CardView";
+import transition from "../transition";
 
-export const Home = () => {
+const Home = () => {
   return (
     <div>
-
-        <Banner />
-        <CardView />
-  
+      <Banner />
+      <CardView />
     </div>
-  )
-}
+  );
+};
+
+export default Home;
