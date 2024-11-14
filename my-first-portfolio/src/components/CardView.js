@@ -77,7 +77,7 @@ const Single = ({ item }) => {
       initial="initial"
       whileInView="animate"
       whileHover={{
-        scale: 1.1,
+        scale: 1.05,
         transition: { duration: 0.8 }, // Fixed syntax here
       }}
       transition={{ duration: 0.5 }}
