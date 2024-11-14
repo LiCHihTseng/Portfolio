@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import transition from "../transition";
 import { motion } from "framer-motion";
 import Insync from "../assets/img/InSync-banner.svg";
+import './ProjectDetail.scss';
 
 import Marquee from "../components/marquee/Marquee"; // Fix the casing of the file name//+
 
@@ -21,6 +22,15 @@ const items = [
       "Schedule Management",
       "User Experience",
     ],
+    project_sum: "I contributed to expanding InSync’s functionality as an ambient product for family engagement and scheduling by designing the user interface for both the mobile app and digital frame. Working with the team, I introduced responsive features like motion detection and personalized status lights, creating an intuitive, hands-free interaction experience.\n\nTo enhance usability, I integrated navigation elements and visual cues, helping users easily manage schedules, view updates, and share stories within the family circle. These enhancements transformed InSync into a meaningful family hub, fostering better communication and helping users feel more connected to each other’s daily lives.",
+    project_highlights: [
+      "Added motion detection and personalized status lights",
+      "Introduced responsive features for mobile app and digital frame",
+      "Integrated navigation elements and visual cues",
+      "Enhanced usability by creating intuitive, hands-free interaction experience"],
+    viedo_link: "https://youtu.be/y29mrG8imNg",
+    my_role: "As the Lead UI Designer for InSync, I focused on creating intuitive interfaces for both the mobile app and digital photo frame, collaborating closely with our backend developer, mobile developer, and hardware specialist to integrate key features like motion detection, personalized status lights, and an ambient scheduling display. My primary responsibility was to align design with user needs, ensuring usability across platforms.\n\n In addition to leading the UI design process, I conducted iterative testing to refine the user experience. Delayed feedback required multiple design adjustments, enhancing our product’s relevance to family communication needs but adding pressure to our timeline. I also supported React Native development, gaining valuable coding experience and contributing to a foundation of user-centered, ambient interaction that makes InSync a meaningful tool for family connectivity."
+
   },
   {
     id: 2,
@@ -96,24 +106,32 @@ const ProjectDetail = () => {
       
       <Marquee keywords={projectItem.keywords} /> 
 
-      <div className="grid grid-cols-2 m-5">
+      <div className="grid grid-cols-2 m-5 ">
         <h5>Project Summary</h5>
-        <p>{projectItem.desc}</p>
+        <div>
+          {projectItem.project_sum.split('\n\n').map((paragraph, index) => (
+            <p key={index} className="text-des">{paragraph}</p>
+          ))}
+        </div>
       </div>
 
-      <div className="grid grid-cols-2 m-5">
+      <div className="grid grid-cols-2 m-5 ">
         <h5>Problem Statement</h5>
-        <p>{projectItem.desc}</p>
+        <p className="text-des">{projectItem.desc}</p>
       </div>
 
       <div className="grid grid-cols-2 m-5">
         <h5>Users And Need</h5>
-        <p>{projectItem.desc}</p>
+        <p className="text-des">{projectItem.desc}</p>
       </div>
 
-      <div className="grid grid-cols-2 m-5">
+      <div className="grid grid-cols-2 m-5 ">
         <h5>My Role</h5>
-        <p>{projectItem.desc}</p>
+        <div>
+          {projectItem.my_role.split('\n\n').map((paragraph, index) => (
+            <p key={index} className="text-des">{paragraph}</p>
+          ))}
+        </div>
       </div>
     </div>
   );
