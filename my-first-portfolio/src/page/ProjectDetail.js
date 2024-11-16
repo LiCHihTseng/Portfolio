@@ -241,7 +241,7 @@ const ProjectDetail = () => {
           ))}
         </ul>
         <Slider keywords={projectItem.slider_img} />
-        <div>
+        <div className="mt-8">
           <h2>Feedbck are everywhere</h2>
           <div className="grid grid-cols-3 mt-5">
             <div className="col-span-2">
@@ -291,11 +291,12 @@ const ProjectDetail = () => {
               className="object-cover rounded-lg " style={{height: "18.75rem", width: "25rem"}}
             />
               </div>
-              <div>
+              <div style={{scale: 1}}>
               <Lottie
               options={defaultOptions4}
-
-              className="w-full h-full object-cover rounded-lg "
+              
+              className="object-cover rounded-lg "
+              
             />
               </div>
               
