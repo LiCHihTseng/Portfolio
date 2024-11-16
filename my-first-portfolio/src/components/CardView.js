@@ -71,7 +71,7 @@ const Single = ({ item }) => {
 
   return (
     <motion.div
-      className="m-5 d-flex cardContainer"
+      className="m-5 d-flex cardContainer hover:cursor-pointer"
       ref={ref}
       variants={variants}
       initial="initial"
