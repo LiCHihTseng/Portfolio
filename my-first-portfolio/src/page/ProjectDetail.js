@@ -246,11 +246,7 @@ const ProjectDetail = () => {
       <div className="mt-10" style={{ scale: "0.8", overflow: "hidden" }}>
         {" "}
         {/* Added overflow */}
-        <img
-          src={projectItem.img_2}
-          alt={projectItem.title}
-          className="w-full h-full object-fit rounded-lg" // Adjusted class names
-        />
+        <Slider keywords={projectItem.slider_img} />
       </div>
 
       <div className="grid grid-cols-2 m-5 ">
@@ -279,7 +275,7 @@ const ProjectDetail = () => {
         <h2>Key features</h2>
         {Object.entries(projectItem.project_highlights).map(
           ([key, { img, description }]) => (
-            <div key={key} className="key-finding-item flex p-4 items-center">
+            <div key={key} className="flex p-4 items-center">
               <Lottie
                 options={keyfeatureOptions(img)} // Use the img from each key
                 className="object-fit"
@@ -292,7 +288,7 @@ const ProjectDetail = () => {
             </div>
           )
         )}
-        <Slider keywords={projectItem.slider_img} />
+
         <div className="mt-8">
           <h2>Feedbck are everywhere</h2>
           <div className="flex flex-wrap mt-5">
