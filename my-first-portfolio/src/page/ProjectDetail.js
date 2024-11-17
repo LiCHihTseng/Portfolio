@@ -22,6 +22,8 @@ import InsyncAnimation from "../assets/img/GIF/InSync";
 import InsyncAnimation2 from "../assets/img/GIF/icon-park_brain";
 import InsyncAnimation3 from "../assets/img/GIF/icon-park_user_test";
 import InsyncPictureFrame1 from "../assets/img/GIF/InSync-PhotoFrame";
+import InsyncPictureFrame2 from "../assets/img/GIF/InSync-Short2";
+import InsyncAnimation_motion_sensor from "../assets/img/GIF/Motion-sensor";
 
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
@@ -30,7 +32,7 @@ const items = [
     title: "InSync: The Digital Picture Frame",
     img: InsyncAnimation,
     img_2: Insync_photoframe,
-    
+
     slider_img: [SliderImage1, SliderImage2, SliderImage3],
     keywords: [
       "Mobile App",
@@ -42,10 +44,30 @@ const items = [
     project_sum:
       "I contributed to expanding InSync’s functionality as an ambient product for family engagement and scheduling by designing the user interface for both the mobile app and digital frame. Working with the team, I introduced responsive features like motion detection and personalized status lights, creating an intuitive, hands-free interaction experience.\n\nTo enhance usability, I integrated navigation elements and visual cues, helping users easily manage schedules, view updates, and share stories within the family circle. These enhancements transformed InSync into a meaningful family hub, fostering better communication and helping users feel more connected to each other’s daily lives.",
     project_highlights: [
-      "Added motion detection and personalized status lights",
-      "Introduced responsive features for mobile app and digital frame",
-      "Integrated navigation elements and visual cues",
-      "Enhanced usability by creating intuitive, hands-free interaction experience",
+      {
+        key: "motion_sensors_and_personalized_status",
+        img: InsyncAnimation_motion_sensor,
+        description:
+          "Designed to enhance usability, motion sensors detect user presence and activate personalized status lights.",
+      },
+      {
+        key: "posting_family_notes",
+        img:InsyncAnimation_motion_sensor,
+        description:
+          "A feature for enhancing family communication, allowing users to post notes on the digital photo frame.",
+      },
+      {
+        key: "scheduling_system_feedback",
+        img: InsyncAnimation_motion_sensor,
+        description:
+          "Provides an intuitive display for family schedules, helping users stay informed about daily plans.",
+      },
+      {
+        key: "hardware_aesthetics",
+        img: InsyncAnimation_motion_sensor,
+        description:
+          "Focuses on blending the digital frame into the home environment by minimizing visible wires.",
+      },
     ],
     video_link: "https://youtu.be/y29mrG8imNg",
     problem_statements:
@@ -68,6 +90,9 @@ const items = [
     user_img: InsyncAnimation2,
     use_img2: InsyncAnimation3,
     short_img1: InsyncPictureFrame1,
+    short_img2: InsyncPictureFrame2,
+    conclusion:
+      "Working on the InSync project was a transformative journey that challenged me to design interfaces that seamlessly blend technology with daily life. As the lead UI designer, I focused on creating an ambient and intuitive system that fostered family engagement through features like motion detection and personalized status lights. Balancing user feedback, hardware constraints, and development timelines required innovative problem-solving and adaptability, but the positive reception validated our efforts. This experience honed my technical and design skills while deepening my appreciation for user-centered, responsive solutions, inspiring me to continue crafting meaningful technologies that enhance everyday experiences.",
   },
   {
     id: 2,
@@ -154,6 +179,24 @@ const ProjectDetail = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  const defaultOptions5 = {
+    loop: true,
+    autoplay: true,
+    animationData: projectItem.short_img2,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const keyfeatureOptions = (img) => ({
+    loop: true,
+    autoplay: true,
+    animationData: img,  
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  });
   return (
     <div
       className="container mx-auto projectContainer mt-10 overflow-visible"
@@ -170,8 +213,8 @@ const ProjectDetail = () => {
           options={defaultOptions}
           // height={400}
           // width={400}
-          className="w-full h-full object-fit rounded-lg "
-          style={{ borderRadius: "2.5rem" }}
+          className="w-full h-full object-fit rounded-md "
+          style={{ borderRadius: "1.5rem" }}
         />
       </div>
 
@@ -198,6 +241,8 @@ const ProjectDetail = () => {
         </div>
       </div>
 
+      {/* 
+      <div className="" style={{height: "20vh"}}></div> */}
       <div className="mt-10" style={{ scale: "0.8", overflow: "hidden" }}>
         {" "}
         {/* Added overflow */}
@@ -228,23 +273,40 @@ const ProjectDetail = () => {
           ))}
         </div>
       </div>
+
+      <div className="" style={{ height: "20vh" }}></div>
       <div>
-        <h2>Highlights</h2>
-        <ul style={{ paddingLeft: "0px" }}>
-          {projectItem.project_highlights.map((highlight, index) => (
-            <div className="flex p-1 items-center">
-              <FontAwesomeIcon icon={faCheckCircle} />
-              <li key={index} className="ml-5">
-                {highlight}
-              </li>
+        <h2>Key features</h2>
+        {Object.entries(projectItem.project_highlights).map(
+          ([key, { img, description }]) => (
+            <div key={key} className="key-finding-item flex p-4 items-center">
+              <Lottie
+                options={keyfeatureOptions(img)} // Use the img from each key
+                className="object-fit"
+                style={{ height: "18.75rem", width: "25rem" }}
+              />
+              <div className="description">
+                <h3 className="text-lg font-semibold">{key}</h3>
+                <p>{description}</p>
+              </div>
             </div>
-          ))}
-        </ul>
+          )
+        )}
         <Slider keywords={projectItem.slider_img} />
         <div className="mt-8">
           <h2>Feedbck are everywhere</h2>
-          <div className="grid grid-cols-3 mt-5">
-            <div className="col-span-2">
+          <div className="flex flex-wrap mt-5">
+            <div className="flex justify-center xl:basis-2/5 xl:order-2">
+              <Lottie
+                options={defaultOptions2}
+                // height={96}
+                // width={96}
+                className="object-fit"
+                style={{ height: "18.75rem", width: "25rem" }}
+              />
+            </div>
+
+            <div className="xl:basis-3/5 xl:order-1">
               {projectItem.initial_user_test
                 .split("\n\n")
                 .map((paragraph, index) => (
@@ -253,53 +315,83 @@ const ProjectDetail = () => {
                   </p>
                 ))}
             </div>
-            <Lottie
-              options={defaultOptions2}
-              height={400}
-              width={400}
-              className="object-cover rounded-lg "
-            />
           </div>
 
+          <div className="" style={{ height: "20vh" }}></div>
           <h2 className="mt-5">User evaluation & User test</h2>
           <p className="text-des">{projectItem.user_test_desc}</p>
           <div className="mt-5 ">
             <div>
               <h3>Key Findings</h3>
-              <div className="grid grid-cols-3 mt-5">
-              <ul style={{ paddingLeft: "20px" }} className="col-span-2">
-                {projectItem.key_findings.map((highlight, index) => {
-                  // Split the highlight into words
-                  const words = highlight.split(" ");
-                  // Bold the first two words
-                  const boldText = words.slice(0, 2).join(" ");
-                  const restText = words.slice(2).join(" ");
+              <div className="flex flex-wrap mt-5">
+                <div className="flex justify-center xl:basis-2/5 xl:order-2">
+                  <Lottie
+                    options={defaultOptions3}
+                    className="object-cover rounded-lg"
+                    style={{ height: "18.75rem", width: "25rem" }}
+                  />
+                </div>
 
-                  return (
-                    <li key={index} className="flex p-1 items-center text-des">
-                      <FontAwesomeIcon icon={faCircle} className="fa-2xs"/>
-                      <span className="ml-5">
-                        <strong className="text-white">{boldText}</strong>{" "}
-                        {restText}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
-              <Lottie
-              options={defaultOptions3}
-              className="object-cover rounded-lg " style={{height: "18.75rem", width: "25rem"}}
-            />
+                {/* List of key findings */}
+                <div className="xl:basis-3/5 xl:order-1">
+                  <ul style={{ paddingLeft: "20px" }}>
+                    {projectItem.key_findings.map((highlight, index) => {
+                      // Split the highlight into words
+                      const words = highlight.split(" ");
+                      // Bold the first two words
+                      const boldText = words.slice(0, 2).join(" ");
+                      const restText = words.slice(2).join(" ");
+
+                      return (
+                        <li
+                          key={index}
+                          className="flex p-1 items-center text-des"
+                        >
+                          <FontAwesomeIcon icon={faCircle} className="fa-2xs" />
+                          <span className="ml-5">
+                            <strong className="text-white">{boldText}</strong>{" "}
+                            {restText}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
-              <div style={{scale: 1}}>
-              <Lottie
-              options={defaultOptions4}
-              
-              className="object-cover rounded-lg "
-              
-            />
+              {/* Lottie animation */}
+            </div>
+            <div className="" style={{ height: "20vh" }}></div>
+            <div className="">
+              <div className="flex">
+                <div className="flex-auto w-60 rounded-lg">
+                  <Lottie
+                    options={defaultOptions4}
+                    className="object-cover "
+                    style={{
+                      width: "80%",
+                      height: "100%",
+                      borderRadius: "1rem",
+                    }}
+                  />
+                </div>
+                <div className="flex-auto w-60 rounded-lg ">
+                  <Lottie
+                    options={defaultOptions5}
+                    className="object-cover "
+                    style={{
+                      width: "80%",
+                      height: "100%",
+                      borderRadius: "1rem",
+                    }}
+                  />
+                </div>
               </div>
-              
+
+              <div className="" style={{ height: "20vh" }}></div>
+              <div className="">
+                <h3>Conclusion</h3>
+                <p className="text-des">{projectItem.conclusion}</p>
+              </div>
             </div>
           </div>
         </div>

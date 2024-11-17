@@ -12,6 +12,19 @@
       background-color: #333338;
   }
 
-  .imgContainer{
-    border-radius: 3rem;
+  .imgContainer {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-width: 500px; /* Default for small screens */
+    max-height: 400px;
+  
+    @media (min-width: 768px) {
+      max-width: 800px; /* Bigger on medium screens */
+      max-height: 600px;
+    }
+  
+    @media (min-width: 1024px) {
+      max-width: 1000px; /* Even bigger on large screens */
+      max-height: 800px;
+    }
   }

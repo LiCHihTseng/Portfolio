@@ -10,14 +10,14 @@ const Slider = ({ keywords = [] }) => {
           className="flex flex-shrink-0"
           initial={{ x: 0 }}
           animate={{ x: "-100%" }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear"}}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         >
           {keywords.map((src, index) => (
             <img
               key={index}
               src={src}
               alt={`Slider image ${index + 1}`}
-              className="m-5 p-4 h-full w-full inline-block flex items-center justify-center text-center imgContainer"
+              className="m-5 p-4 h-auto w-full max-w-md md:max-w-lg lg:max-w-xl max-h-[90vh] inline-block flex items-center justify-center text-center imgContainer"
             />
           ))}
         </motion.div>
@@ -25,14 +25,14 @@ const Slider = ({ keywords = [] }) => {
           className="flex flex-shrink-0"
           initial={{ x: 0 }}
           animate={{ x: "-100%" }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear"}}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         >
           {keywords.map((src, index) => (
             <img
               key={index}
               src={src}
               alt={`Slider image ${index + 1}`}
-              className="m-5 p-4 h-full w-full inline-block flex items-center justify-center text-center imgContainer"
+              className="m-5 p-4 h-auto w-full max-w-sm md:max-w-md lg:max-w-lg inline-block flex items-center justify-center text-center imgContainer"
             />
           ))}
         </motion.div>
