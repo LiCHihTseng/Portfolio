@@ -24,6 +24,8 @@ import InsyncAnimation3 from "../assets/img/GIF/icon-park_user_test";
 import InsyncPictureFrame1 from "../assets/img/GIF/InSync-PhotoFrame";
 import InsyncPictureFrame2 from "../assets/img/GIF/InSync-Short2";
 import InsyncAnimation_motion_sensor from "../assets/img/GIF/Motion-sensor";
+import InsyncAnimation_family_note from "../assets/img/GIF/Family_note";
+import InsyncAnimation_schedule from "../assets/img/GIF/Schedule";
 
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
@@ -45,28 +47,22 @@ const items = [
       "I contributed to expanding InSync’s functionality as an ambient product for family engagement and scheduling by designing the user interface for both the mobile app and digital frame. Working with the team, I introduced responsive features like motion detection and personalized status lights, creating an intuitive, hands-free interaction experience.\n\nTo enhance usability, I integrated navigation elements and visual cues, helping users easily manage schedules, view updates, and share stories within the family circle. These enhancements transformed InSync into a meaningful family hub, fostering better communication and helping users feel more connected to each other’s daily lives.",
     project_highlights: [
       {
-        key: "motion_sensors_and_personalized_status",
+        key: "Motion sensors and Interactive Video Playback",
         img: InsyncAnimation_motion_sensor,
         description:
-          "Designed to enhance usability, motion sensors detect user presence and activate personalized status lights.",
+          "Motion sensors detect when a user approaches the photo frame, triggering the display of an interactive video. Users can also customize status lights via the mobile app, choosing colors to reflect different moods or states, or use the auto-status feature to display their availability, such as busy, occupied, or relaxing, on the photo frame.",
       },
       {
-        key: "posting_family_notes",
-        img:InsyncAnimation_motion_sensor,
+        key: "Posting Family Notes",
+        img: InsyncAnimation_family_note,
         description:
-          "A feature for enhancing family communication, allowing users to post notes on the digital photo frame.",
+          "Enhancing family communication, this feature allows users to post notes on the digital photo frame. Notes can be used for reminders, messages, or small thoughtful gestures, fostering a deeper connection among family members.",
       },
       {
-        key: "scheduling_system_feedback",
-        img: InsyncAnimation_motion_sensor,
+        key: "Scheduling System Feedback",
+        img: InsyncAnimation_schedule,
         description:
-          "Provides an intuitive display for family schedules, helping users stay informed about daily plans.",
-      },
-      {
-        key: "hardware_aesthetics",
-        img: InsyncAnimation_motion_sensor,
-        description:
-          "Focuses on blending the digital frame into the home environment by minimizing visible wires.",
+          "An intuitive schedule display helps families stay on top of daily plans. Integrated with existing calendars, the system ensures effortless updates, keeping every member informed and organized.",
       },
     ],
     video_link: "https://youtu.be/y29mrG8imNg",
@@ -192,14 +188,14 @@ const ProjectDetail = () => {
   const keyfeatureOptions = (img) => ({
     loop: true,
     autoplay: true,
-    animationData: img,  
+    animationData: img,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   });
   return (
     <div
-      className="container mx-auto projectContainer mt-10 overflow-visible"
+      className="container mx-auto projectContainer mt-10 overflow-visible static "
       variants={textVariants}
       initial="initial"
       animate="animate"
@@ -218,7 +214,7 @@ const ProjectDetail = () => {
         />
       </div>
 
-      <Marquee keywords={projectItem.keywords} />
+      <Marquee className='absolute bottom-0 left-0 ' keywords={projectItem.keywords} />
 
       <div className="grid grid-cols-2 m-5 ">
         <h5>Project Summary</h5>
@@ -273,21 +269,34 @@ const ProjectDetail = () => {
       <div className="" style={{ height: "20vh" }}></div>
       <div>
         <h2>Key features</h2>
-        {Object.entries(projectItem.project_highlights).map(
-          ([key, { img, description }]) => (
-            <div key={key} className="flex p-4 items-center">
-              <Lottie
-                options={keyfeatureOptions(img)} // Use the img from each key
-                className="object-fit"
-                style={{ height: "18.75rem", width: "25rem" }}
-              />
-              <div className="description">
-                <h3 className="text-lg font-semibold">{key}</h3>
-                <p>{description}</p>
+        {projectItem.project_highlights.map((highlight) => (
+          <div
+            key={highlight.key}
+            className="flex flex-column p-4 items-center mt-5"
+          >
+            <h4 className="font-semibold items-center justify-center text-gray-300">
+              {highlight.key}
+            </h4>
+            <div className="w-1/2">
+              <p className="text-des">{highlight.description}</p>{" "}
+              {/* Display the description */}
+            </div>
+
+            <div className="flex flex-row items-center justify-center mt-8">
+              <div className="basis-1/2">
+                <Lottie
+                  options={keyfeatureOptions(highlight.img)} // Use the img from the highlight
+                  style={{
+                    height: "100%",
+                    borderRadius: "0.5rem"
+                  }}
+                />
               </div>
             </div>
-          )
-        )}
+          </div>
+        ))}
+
+        <div className="" style={{ height: "20vh" }}></div>
 
         <div className="mt-8">
           <h2>Feedbck are everywhere</h2>
