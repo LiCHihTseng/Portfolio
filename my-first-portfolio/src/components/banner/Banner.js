@@ -4,54 +4,35 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 // import "animate.css";
 import TrackVisibility from "react-on-screen";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
-import './Banner.scss';
-
+import "./Banner.scss";
 
 const textVariants = {
-  initial:{
-    x:-500,
-    opacity:0,
+  initial: {
+    x: -500,
+    opacity: 0,
   },
-  animate:{
-    x:0,
-    opacity:1,
-    transition:{
-      duration:1,
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
       delay: 1,
-      staggerChildren:0.1,
-    }
+      staggerChildren: 0.1,
+    },
   },
-    
-}
+};
 
-// const sliderVariants = {
-//   initial:{
-//     x:0,
-//   },
-//   animate:{
-//     x:"220%",
-//     transition:{
-//       repeat:Infinity,
-//       duration:20,
-//     }
-//   },
-    
-// }
 export const Banner = () => {
   const targetRef = useRef(null);
-
-
-
 
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
-  const [delta, setDelta] = useState(200 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
+  const [delta, setDelta] = useState(150); // Default speed for typing and deleting
   const toRotate = ["Current Student", "Web Designer", "UI/UX Designer"];
-  const period = 1000;
+  const period = 1000; // Pause duration after completing a word
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -73,31 +54,22 @@ export const Banner = () => {
     setText(updatedText);
 
     if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
+      setDelta(100); // Deleting speed
     }
 
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
-      setIndex((prevIndex) => prevIndex - 1);
-      setDelta(period);
+      setDelta(period); // Pause after completing a word
     } else if (isDeleting && updatedText === "") {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(500);
-    } else {
-      setIndex((prevIndex) => prevIndex + 1);
+      setDelta(150); // Typing speed
     }
   };
 
- 
-
   return (
-    <motion.div  variants={textVariants} initial="initial" animate="animate">
-      <section
-        className="banner"
-        id="home"
-      >
+    <motion.div variants={textVariants} initial="initial" animate="animate">
+      <section className="banner" id="home">
         <Container className="banner">
           <Row className="align-items-center">
             <Col lg={10} md={10} sm={10}>
@@ -113,14 +85,15 @@ export const Banner = () => {
                       {`Hi! I'm Jason Tseng`}{" "}
                       <span
                         className="txt-rotate"
-                        dataPeriod="500"
+                        dataPeriod="100"
                         data-rotate='[ "Current Student", "Web Developer", "UI/UX Designer" ]'
                       >
                         <span className="wrap">{text}</span>
                       </span>
                     </h1>
                     <p>
-                      Currently studying on Univiersity of Queensland, Master of Interaction Design student
+                      Currently studying at the University of Queensland, Master
+                      of Interaction Design student
                     </p>
                   </div>
                 )}
@@ -128,15 +101,13 @@ export const Banner = () => {
             </Col>
           </Row>
 
-          <Row >
+          <Row>
             <Col md="auto">
               <button onClick={() => console.log("connect")}>
                 Contact me! <ArrowRightCircle size={25} />
               </button>
             </Col>
           </Row>
-
-          {/* content */}
         </Container>
       </section>
     </motion.div>

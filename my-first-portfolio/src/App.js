@@ -5,6 +5,7 @@
   import ProjectDetail from "./page/ProjectDetail";
   import "bootstrap/dist/css/bootstrap.min.css";
   import Home from "./page/Home";
+  import Footer from "./components/footer/Footer";
   import { AnimatePresence } from "framer-motion";
 
   // Import the necessary components and libraries
@@ -19,6 +20,7 @@
             <Route path="/project/:id" element={<ProjectDetail />} />
           </Routes>
         </AnimatePresence>
+        <Footer/>
       </>
     );
   }

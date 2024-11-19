@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import transition from "../transition";
 import { motion } from "framer-motion";
@@ -8,12 +8,13 @@ import "./ProjectDetail.scss";
 import Marquee from "../components/marquee/Marquee"; // Fix the casing of the file name//+
 import Slider from "../components/slider/Slider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faCircle } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight, faCircle, faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 
 // import Insync from "../assets/img/InSync-banner.svg";
 import Insync_photoframe from "../assets/img/InSync-photoframe.svg";
+import InSync_photo from "../assets/img/InSync-Photo.svg";
 import SliderImage1 from "../assets/img/InSync-Slider1.svg";
 import SliderImage2 from "../assets/img/InSync-Slider2.svg";
 import SliderImage3 from "../assets/img/InSync-Slider3.svg";
@@ -31,6 +32,7 @@ import InsyncAnimation_schedule from "../assets/img/GIF/Schedule";
 const items = [
   {
     id: 1,
+    project_category: "Side Projects",
     title: "InSync: The Digital Picture Frame",
     img: InsyncAnimation,
     img_2: Insync_photoframe,
@@ -122,6 +124,7 @@ const textVariants = {
 
 const ProjectDetail = () => {
   const location = useLocation();
+  const ref = useRef(null);
   const { id } = useParams(); // Access the id from the URL
   const { item } = location.state || {}; // Get item data from location state
 
@@ -193,6 +196,22 @@ const ProjectDetail = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   });
+  //animation for scrolling
+  const variants = {
+    initial: {
+      y: 100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        staggerChildren: 0.1,
+      },
+    },
+  };
   return (
     <div
       className="container mx-auto projectContainer mt-10 overflow-visible static "
@@ -214,9 +233,60 @@ const ProjectDetail = () => {
         />
       </div>
 
-      <Marquee className='absolute bottom-0 left-0 ' keywords={projectItem.keywords} />
+      <Marquee
+        className="absolute bottom-0 left-0 "
+        keywords={projectItem.keywords}
+      />
 
-      <div className="grid grid-cols-2 m-5 ">
+      <motion.div
+        className="grid xl:grid-cols-4 lg: grid-cols-2 m-5 gap-4"
+        ref={ref}
+        variants={variants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+      >
+        <div>
+          <h5>MY ROLE</h5>
+          <div className="flex-col mt-4">
+            <p className="text-des">UI Design</p>
+            <p className="text-des">Product UI Design</p>
+            <p className="text-des">UX Design</p>
+            <p className="text-des">User Research</p>
+          </div>
+        </div>
+        <div>
+          <h5>TEAM</h5>
+          <div className="flex-col mt-4">
+            <p className="text-des">UI & UX Designer</p>
+            <p className="text-des">Developer (Mobile and Photo Frame)</p>
+            <p className="text-des">Database Developer</p>
+          </div>
+        </div>
+        <div>
+          <h5>YEAR</h5>
+          <div className="flex-col mt-4">
+            <p className="text-des">Aug - Nov 2024</p>
+          </div>
+        </div>
+        <div>
+          <h5>TOOLS</h5>
+          <div className="flex-col mt-4">
+            <p className="text-des">Figma</p>
+            <p className="text-des">Python GUI</p>
+            <p className="text-des">React Native</p>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="grid lg:grid-cols-2 m-5 md:grid-cols-1"
+        ref={ref}
+        variants={variants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+      >
         <h5>Project Summary</h5>
         <div>
           {projectItem.project_sum.split("\n\n").map((paragraph, index) => (
@@ -235,27 +305,39 @@ const ProjectDetail = () => {
             <FontAwesomeIcon icon={faChevronRight} />
           </div>
         </div>
+      </motion.div>
+
+      <div className="flex rounded-lg items-center justify-center">
+        <img src={InSync_photo} alt="" className="rounded-lg w-2/3 h-2/3"></img>
       </div>
 
-      {/* 
-      <div className="" style={{height: "20vh"}}></div> */}
-      <div className="mt-10" style={{ scale: "0.8", overflow: "hidden" }}>
-        {" "}
-        {/* Added overflow */}
-        <Slider keywords={projectItem.slider_img} />
-      </div>
+      <div className="" style={{ height: "10vh" }}></div>
 
-      <div className="grid grid-cols-2 m-5 ">
+      <div
+        className="grid lg:grid-cols-2 m-5 md:grid-cols-1 "
+        ref={ref}
+        variants={variants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+      >
         <h5>Problem Statement</h5>
         <p className="text-des">{projectItem.problem_statements}</p>
       </div>
 
-      <div className="grid grid-cols-2 m-5">
+      <div className="grid lg:grid-cols-2 m-5 md:grid-cols-1">
         <h5>Users And Need</h5>
         <p className="text-des">{projectItem.user_need}</p>
       </div>
 
-      <div className="grid grid-cols-2 m-5 ">
+      <div
+        className="grid lg:grid-cols-2 m-5 md:grid-cols-1"
+        ref={ref}
+        variants={variants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+      >
         <h5>My Role</h5>
         <div>
           {projectItem.my_role.split("\n\n").map((paragraph, index) => (
@@ -265,49 +347,59 @@ const ProjectDetail = () => {
           ))}
         </div>
       </div>
+      <div className="mt-10">
+        <Slider keywords={projectItem.slider_img} />
+      </div>
 
       <div className="" style={{ height: "20vh" }}></div>
       <div>
-        <h2>Key features</h2>
-        {projectItem.project_highlights.map((highlight) => (
-          <div
-            key={highlight.key}
-            className="flex flex-column p-4 items-center mt-5"
-          >
-            <h4 className="font-semibold items-center justify-center text-gray-300">
-              {highlight.key}
-            </h4>
-            <div className="w-1/2">
-              <p className="text-des">{highlight.description}</p>{" "}
-              {/* Display the description */}
-            </div>
+        <div
+          ref={ref}
+          variants={variants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
+          <h2>Key features</h2>
+          {projectItem.project_highlights.map((highlight) => (
+            <div
+              key={highlight.key}
+              className="flex flex-column p-4 items-center mt-5"
+            >
+              <h4 className="font-semibold items-center justify-center text-gray-300">
+                {highlight.key}
+              </h4>
+              <div className="lg:w-1/2 md:w-full">
+                <p className="text-des">{highlight.description}</p>{" "}
+                {/* Display the description */}
+              </div>
 
-            <div className="flex flex-row items-center justify-center mt-8">
-              <div className="basis-1/2">
-                <Lottie
-                  options={keyfeatureOptions(highlight.img)} // Use the img from the highlight
-                  style={{
-                    height: "100%",
-                    borderRadius: "0.5rem"
-                  }}
-                />
+              <div className="flex flex-row items-center justify-center mt-8">
+                <div className="basis-2/3">
+                  <Lottie
+                    options={keyfeatureOptions(highlight.img)} // Use the img from the highlight
+                    style={{
+                      height: "100%",
+                      borderRadius: "0.5rem",
+                    }}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         <div className="" style={{ height: "20vh" }}></div>
 
         <div className="mt-8">
           <h2>Feedbck are everywhere</h2>
           <div className="flex flex-wrap mt-5">
-            <div className="flex justify-center xl:basis-2/5 xl:order-2">
+            <div className="flex justify-center item-center xl:basis-2/5 xl:order-2 md:basis-1/2">
               <Lottie
                 options={defaultOptions2}
                 // height={96}
                 // width={96}
                 className="object-fit"
-                style={{ height: "18.75rem", width: "25rem" }}
               />
             </div>
 
@@ -321,15 +413,18 @@ const ProjectDetail = () => {
                 ))}
             </div>
           </div>
+        </div>
 
-          <div className="" style={{ height: "20vh" }}></div>
+        <div className="" style={{ height: "20vh" }}></div>
+
+        <div>
           <h2 className="mt-5">User evaluation & User test</h2>
           <p className="text-des">{projectItem.user_test_desc}</p>
           <div className="mt-5 ">
             <div>
               <h3>Key Findings</h3>
               <div className="flex flex-wrap mt-5">
-                <div className="flex justify-center xl:basis-2/5 xl:order-2">
+                <div className="flex justify-center xl:basis-2/5 xl:order-2  md:basis-1/2">
                   <Lottie
                     options={defaultOptions3}
                     className="object-cover rounded-lg"
@@ -338,7 +433,7 @@ const ProjectDetail = () => {
                 </div>
 
                 {/* List of key findings */}
-                <div className="xl:basis-3/5 xl:order-1">
+                <div className="xl:basis-3/5 xl:order-1 md:">
                   <ul style={{ paddingLeft: "20px" }}>
                     {projectItem.key_findings.map((highlight, index) => {
                       // Split the highlight into words
@@ -363,43 +458,63 @@ const ProjectDetail = () => {
                   </ul>
                 </div>
               </div>
-              {/* Lottie animation */}
-            </div>
-            <div className="" style={{ height: "20vh" }}></div>
-            <div className="">
-              <div className="flex">
-                <div className="flex-auto w-60 rounded-lg">
-                  <Lottie
-                    options={defaultOptions4}
-                    className="object-cover "
-                    style={{
-                      width: "80%",
-                      height: "100%",
-                      borderRadius: "1rem",
-                    }}
-                  />
-                </div>
-                <div className="flex-auto w-60 rounded-lg ">
-                  <Lottie
-                    options={defaultOptions5}
-                    className="object-cover "
-                    style={{
-                      width: "80%",
-                      height: "100%",
-                      borderRadius: "1rem",
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="" style={{ height: "20vh" }}></div>
-              <div className="">
-                <h3>Conclusion</h3>
-                <p className="text-des">{projectItem.conclusion}</p>
-              </div>
             </div>
           </div>
         </div>
+
+        <div className="" style={{ height: "20vh" }}></div>
+        <div className="">
+          <div className="flex flex-wrap  gap-2">
+            <div className="flex-auto w-60 rounded-lg">
+              <Lottie
+                options={defaultOptions4}
+                className="object-cover "
+                style={{
+                  width: "80%",
+                  height: "100%",
+                  borderRadius: "1rem",
+                }}
+              />
+            </div>
+            <div className="flex-auto w-60 rounded-lg ">
+              <Lottie
+                options={defaultOptions5}
+                className="object-cover "
+                style={{
+                  width: "80%",
+                  height: "100%",
+                  borderRadius: "1rem",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <h3>Conclusion</h3>
+          <p className="text-des">{projectItem.conclusion}</p>
+        </div>
+
+
+        <div className="" style={{ height: "20vh" }}></div>
+        <div className="flex justify-end items-end m-5 ">
+          <motion.div
+            className="rounded-full"
+            whileHover={{
+              scaleX:1.1,
+              transition: { duration: 0.8 }, // Fixed syntax here
+            }}
+            style={{backgroundColor: "#333338"}}
+          >
+            <div className="flex justify-center items-center p-4 gap-4">
+              <a className=" text-3xl text-white">Next Project</a>
+              <FontAwesomeIcon icon={faArrowCircleRight} className="fa-2x"/>
+            </div>
+          </motion.div>
+        </div>
+
+
+
       </div>
     </div>
   );

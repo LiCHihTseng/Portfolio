@@ -124,8 +124,6 @@ const Single = ({ item }) => {
           }}>
         <motion.p
           className="text-right inline-block align-center mb-0 text-lg"
-          
-         
         >
           See More
          
