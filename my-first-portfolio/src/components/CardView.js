@@ -13,6 +13,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 import Insync from "../assets/img/InSync-logo.png";
+import yoUQuest from "../assets/img/yoUQuest.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRight} from "@fortawesome/free-solid-svg-icons"
 
@@ -43,9 +44,9 @@ const items = [
   },
   {
     id: 2,
-    title: "Project Name2",
-    img: "https://picsum.photos/400",
-    platform: "website",
+    title: "yoUQuest",
+    img: yoUQuest,
+    platform: ["Website","ReactJS", ],
     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
@@ -71,7 +72,7 @@ const Single = ({ item }) => {
 
   return (
     <motion.div
-      className="m-5 d-flex cardContainer hover:cursor-pointer"
+      className="m-5 grid xl:grid-cols-2 lg:grid-cols-1 cardContainer hover:cursor-pointer"
       ref={ref}
       variants={variants}
       initial="initial"
@@ -84,10 +85,11 @@ const Single = ({ item }) => {
 
       onClick={handleClick}
     >
-      <div className="imgContainer">
-        <img src={item.img} alt={item.title} />
+      
+      <div className="col-span-1 w-full h-full ">
+        <img src={item.img} alt={item.title} className="w-full h-full rounded-lg"/>
       </div>
-      <div className="d-flex flex-col space-between gap-10">
+      <div className="d-flex flex-col space-between gap-10 ">
         <div className="textContainer">
           {/* Container for multiple platform tags */}
 

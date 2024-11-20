@@ -3,8 +3,6 @@
       gap: 40px;
       background-color: var(--token-affa1b72-7c43-4531-b217-6ad9a97be289, rgba(255, 255, 255, 0.05));
       border-radius: 12px;
-      display: flex;
-      flex-direction: row; // Default to side-by-side layout
       transition: border 0.3s ease; /* Add a smooth transition for border */
 
       &:hover {
@@ -19,7 +17,7 @@
   
       .imgContainer {
         width: 100%; /* Keep container width 100% to take up full space */
-        height: auto; /* Adjust height based on content or set specific value */
+       
         border-radius: 12px;
   
         img {

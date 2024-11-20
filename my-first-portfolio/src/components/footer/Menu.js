@@ -4,11 +4,10 @@ export const PRODUCTS = [
     { name: "Easy Content", link: "#" },
   ];
   export const RESOURCES = [
-    { name: "Industries and tools", link: "#" },
-    { name: "Use cases", link: "#" },
-    { name: "Blog", link: "#" },
-    { name: "Online evenet", link: "#" },
-    { name: "Nostrud exercitation", link: "#" },
+    { name: "LinkedIn", link: "#" },
+    { name: "Email", link: "#" },
+    { name: "FaceBook", link: "#" },
+    { name: "CV", link: "#" },
   ];
   export const COMPANY = [
     { name: "Diversity & inclusion", link: "#" },

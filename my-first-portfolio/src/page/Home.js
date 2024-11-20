@@ -8,6 +8,7 @@ const Home = () => {
     <div>
       <Banner />
       <CardView />
+      <div className="" style={{ height: "60vh" }}></div>
     </div>
   );
 };

@@ -8,7 +8,12 @@ import "./ProjectDetail.scss";
 import Marquee from "../components/marquee/Marquee"; // Fix the casing of the file name//+
 import Slider from "../components/slider/Slider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faCircle, faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronRight,
+  faCircle,
+  faArrowCircleRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { Roles } from "./Roles";
 
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 
@@ -27,6 +32,8 @@ import InsyncPictureFrame2 from "../assets/img/GIF/InSync-Short2";
 import InsyncAnimation_motion_sensor from "../assets/img/GIF/Motion-sensor";
 import InsyncAnimation_family_note from "../assets/img/GIF/Family_note";
 import InsyncAnimation_schedule from "../assets/img/GIF/Schedule";
+
+import YoUQuestBanner from "../assets/img/GIF/yoUQuest_banner";
 
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
@@ -94,9 +101,65 @@ const items = [
   },
   {
     id: 2,
-    title: "Project Name2",
-    img: "https://picsum.photos/400",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    project_category: "Side Projects",
+    title: "yoUQuest - Your ultimate tool to beat burnout",
+    img: YoUQuestBanner,
+    img_2: Insync_photoframe,
+
+    slider_img: [SliderImage1, SliderImage2, SliderImage3],
+    keywords: [
+      "Website",
+      "Task Management",
+      "User Experience",
+      "Unique Features",
+      "Preventing Burnout",
+    ],
+    project_sum:
+      "yoUQuest is a platform dedicated to empowering students at the University of Queensland by addressing the challenges of academic burnout. \n\nBefore yoUQuest, managing assignments and tasks was a fragmented, stressful process for students, often leading to poor time management and feelings of overwhelm. Staying motivated through demanding academic schedules while maintaining personal well-being was a daunting challenge. \n\nWith yoUQuest, we’ve revolutionized how students organize and complete their academic tasks. By simply searching for their course, students gain access to a personalized assignment setup based on UQ’s course data. The platform allows them to break down assignments into smaller tasks, track their progress using an innovative battle pass system, and visually experience the satisfaction of “climbing a mountain” as they complete their work. A built-in timer ensures students maintain healthy work habits by recommending breaks, supporting better focus, and preventing burnout.\n\nWhat makes yoUQuest stand out is its focus on holistic student well-being. The platform not only simplifies academic management but also encourages a balanced approach to study by integrating gamified progress tracking with practical burnout prevention strategies. With yoUQuest, students can stay on top of their workload, feel accomplished, and thrive academically without compromising their mental health.",
+    project_highlights: [
+      {
+        key: "Motion sensors and Interactive Video Playback",
+        img: InsyncAnimation_motion_sensor,
+        description:
+          "Motion sensors detect when a user approaches the photo frame, triggering the display of an interactive video. Users can also customize status lights via the mobile app, choosing colors to reflect different moods or states, or use the auto-status feature to display their availability, such as busy, occupied, or relaxing, on the photo frame.",
+      },
+      {
+        key: "Posting Family Notes",
+        img: InsyncAnimation_family_note,
+        description:
+          "Enhancing family communication, this feature allows users to post notes on the digital photo frame. Notes can be used for reminders, messages, or small thoughtful gestures, fostering a deeper connection among family members.",
+      },
+      {
+        key: "Scheduling System Feedback",
+        img: InsyncAnimation_schedule,
+        description:
+          "An intuitive schedule display helps families stay on top of daily plans. Integrated with existing calendars, the system ensures effortless updates, keeping every member informed and organized.",
+      },
+    ],
+    video_link: "https://youtu.be/y29mrG8imNg",
+    problem_statements:
+      "Traditional time management apps, often confined to mobile devices, can be both a boon and a bane for family coordination. While they synchronize schedules and organize tasks, they frequently demand constant attention, leading to distractions and fragmented focus. This constant connectivity can isolate family members, prioritizing efficiency over a harmonious family experience. There is a need for a solution that encourages social interaction and collaboration without the intrusive nature of current mobile applications, by integrating technology more subtly and naturally into the home environment.",
+    user_need:
+      "The main users of InSync are families seeking a convenient, shared platform for staying connected and informed about each other's schedules, events, and daily moments. This includes both tech-savvy members and those less familiar with technology, such as older adults who may appreciate easy-to-access family updates without needing to use a smartphone or computer.    ",
+    my_role:
+      "As the Lead UI Designer for InSync, I focused on creating intuitive interfaces for both the mobile app and digital photo frame, collaborating closely with our backend developer, mobile developer, and hardware specialist to integrate key features like motion detection, personalized status lights, and an ambient scheduling display. My primary responsibility was to align design with user needs, ensuring usability across platforms.\n\n In addition to leading the UI design process, I conducted iterative testing to refine the user experience. Delayed feedback required multiple design adjustments, enhancing our product’s relevance to family communication needs but adding pressure to our timeline. I also supported React Native development, gaining valuable coding experience and contributing to a foundation of user-centered, ambient interaction that makes InSync a meaningful tool for family connectivity.",
+    initial_user_test:
+      "Our initial concept for the InSync digital picture frame focused solely on uploading and displaying photos. However, after conducting initial user testing, we received valuable feedback that prompted us to rethink the functionality. Users expressed interest in expanding the content beyond photos, specifically requesting the ability to upload videos, similar to how Instagram Stories or BeReal work. \n\nOne suggestion was to enhance family interaction by displaying videos when a user approaches the picture frame. This feedback highlighted the potential for a more dynamic, engaging experience, where videos could be shown as a form of family interaction. This idea was well-received and inspired us to consider how multimedia content could be integrated to make the frame a more interactive and social experience.",
+    user_test_title: "Think Aloud Methodology",
+    user_test_desc:
+      "We conducted Think Aloud testing to evaluate how users interacted with InSync’s photo frame and mobile app. Users were asked to vocalize their thoughts while performing predefined tasks, providing insight into their understanding and behavior.",
+    key_findings: [
+      "Initial Confusion: Users often hesitated with features like the looping GIF and motion sensors. This uncertainty required some exploration before they understood how to interact with buttons and navigation.",
+      "Positive Reception: Despite initial challenges, users appreciated features like posting notes for family members, recognizing it as a valuable tool for communication.",
+      "Scheduling System: The scheduling display was seen as useful and intuitive, though users struggled to understand the purpose of the light indicator, speculating incorrectly about its function.",
+      "Aesthetic Feedback: Visible wires on the frame distracted users, suggesting a need for more polished hardware design.",
+    ],
+    user_img: InsyncAnimation2,
+    use_img2: InsyncAnimation3,
+    short_img1: InsyncPictureFrame1,
+    short_img2: InsyncPictureFrame2,
+    conclusion:
+      "Working on the InSync project was a transformative journey that challenged me to design interfaces that seamlessly blend technology with daily life. As the lead UI designer, I focused on creating an ambient and intuitive system that fostered family engagement through features like motion detection and personalized status lights. Balancing user feedback, hardware constraints, and development timelines required innovative problem-solving and adaptability, but the positive reception validated our efforts. This experience honed my technical and design skills while deepening my appreciation for user-centered, responsive solutions, inspiring me to continue crafting meaningful technologies that enhance everyday experiences.",
   },
   {
     id: 3,
@@ -212,6 +275,8 @@ const ProjectDetail = () => {
       },
     },
   };
+  const isSVG =
+    typeof projectItem.img === "string" && projectItem.img.endsWith(".svg");
   return (
     <div
       className="container mx-auto projectContainer mt-10 overflow-visible static "
@@ -222,15 +287,20 @@ const ProjectDetail = () => {
       <motion.h1 variants={textVariants} initial="initial" animate="animate">
         {projectItem.title}
       </motion.h1>
-      <div className="mt-10">
-        {" "}
-        <Lottie
-          options={defaultOptions}
-          // height={400}
-          // width={400}
-          className="w-full h-full object-fit rounded-md "
-          style={{ borderRadius: "1.5rem" }}
-        />
+      <div className="mt-10 flex justify-center">
+        {isSVG ? (
+          <img
+            src={projectItem.img}
+            alt={projectItem.title}
+            className="w-1/2 h-1/3 object-fit rounded-md"
+          />
+        ) : (
+          <Lottie
+            options={defaultOptions}
+            className="w-full h-full object-fit rounded-md"
+            style={{ borderRadius: "1.5rem" }}
+          />
+        )}
       </div>
 
       <Marquee
@@ -239,44 +309,65 @@ const ProjectDetail = () => {
       />
 
       <motion.div
-        className="grid xl:grid-cols-4 lg: grid-cols-2 m-5 gap-4"
+        className="grid xl:grid-cols-4 lg:grid-cols-2 m-5 gap-4"
         ref={ref}
         variants={variants}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
       >
-        <div>
-          <h5>MY ROLE</h5>
-          <div className="flex-col mt-4">
-            <p className="text-des">UI Design</p>
-            <p className="text-des">Product UI Design</p>
-            <p className="text-des">UX Design</p>
-            <p className="text-des">User Research</p>
-          </div>
-        </div>
-        <div>
-          <h5>TEAM</h5>
-          <div className="flex-col mt-4">
-            <p className="text-des">UI & UX Designer</p>
-            <p className="text-des">Developer (Mobile and Photo Frame)</p>
-            <p className="text-des">Database Developer</p>
-          </div>
-        </div>
-        <div>
-          <h5>YEAR</h5>
-          <div className="flex-col mt-4">
-            <p className="text-des">Aug - Nov 2024</p>
-          </div>
-        </div>
-        <div>
-          <h5>TOOLS</h5>
-          <div className="flex-col mt-4">
-            <p className="text-des">Figma</p>
-            <p className="text-des">Python GUI</p>
-            <p className="text-des">React Native</p>
-          </div>
-        </div>
+        {/* Filter the roles array to match the current project's ID */}
+        {Roles.filter((role) => role.id === parseInt(id)).map((roleData) => (
+          <React.Fragment key={roleData.id}>
+            {/* MY ROLE Section */}
+            <div>
+              <h5>{roleData.role}</h5>
+              <div className="flex-col mt-4">
+                {roleData.role_content.map((content, index) => (
+                  <p className="text-des" key={`role-${index}`}>
+                    {content}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* TEAM Section */}
+            <div>
+              <h5>{roleData.team}</h5>
+              <div className="flex-col mt-4">
+                {roleData.team_content.map((content, index) => (
+                  <p className="text-des" key={`team-${index}`}>
+                    {content}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* YEAR Section */}
+            <div>
+              <h5>{roleData.year}</h5>
+              <div className="flex-col mt-4">
+                {roleData.year_content.map((content, index) => (
+                  <p className="text-des" key={`year-${index}`}>
+                    {content}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* TOOLS Section */}
+            <div>
+              <h5>{roleData.title}</h5>
+              <div className="flex-col mt-4">
+                {roleData.content.map((content, index) => (
+                  <p className="text-des" key={`tool-${index}`}>
+                    {content}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </React.Fragment>
+        ))}
       </motion.div>
 
       <motion.div
@@ -290,7 +381,7 @@ const ProjectDetail = () => {
         <h5>Project Summary</h5>
         <div>
           {projectItem.project_sum.split("\n\n").map((paragraph, index) => (
-            <p key={index} className="text-des">
+            <p key={index} className="text-des mt-4">
               {paragraph}
             </p>
           ))}
@@ -495,26 +586,24 @@ const ProjectDetail = () => {
           <p className="text-des">{projectItem.conclusion}</p>
         </div>
 
-
         <div className="" style={{ height: "20vh" }}></div>
         <div className="flex justify-end items-end m-5 ">
           <motion.div
             className="rounded-full"
             whileHover={{
-              scaleX:1.1,
+              scaleX: 1.1,
               transition: { duration: 0.8 }, // Fixed syntax here
             }}
-            style={{backgroundColor: "#333338"}}
+            style={{ backgroundColor: "#333338" }}
           >
             <div className="flex justify-center items-center p-4 gap-4">
               <a className=" text-3xl text-white">Next Project</a>
-              <FontAwesomeIcon icon={faArrowCircleRight} className="fa-2x"/>
+              <FontAwesomeIcon icon={faArrowCircleRight} className="fa-2x" />
             </div>
           </motion.div>
         </div>
 
-
-
+        <div className="" style={{ height: "60vh" }}></div>
       </div>
     </div>
   );
