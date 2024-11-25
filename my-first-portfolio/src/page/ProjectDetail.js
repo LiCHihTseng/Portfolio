@@ -35,6 +35,10 @@ import InsyncAnimation_schedule from "../assets/img/GIF/Schedule";
 
 import YoUQuestBanner from "../assets/img/GIF/yoUQuest_banner";
 import YoUQuestPhoto from "../assets/img/yoUQuest-photo.svg";
+import SlideyoUQuest1 from "../assets/img/SlideyoUQuest1.svg";
+import SlideyoUQuest2 from "../assets/img/SlideyoUQuest2.svg" 
+import SlideyoUQuest3 from "../assets/img/SlideyoUQuest3.svg" 
+import BattlePass from "../assets/img/GIF/Battle-pass";
 
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
@@ -107,7 +111,7 @@ const items = [
     img: YoUQuestBanner,
     img_2: YoUQuestPhoto,
 
-    slider_img: [SliderImage1, SliderImage2, SliderImage3],
+    slider_img: [SlideyoUQuest1, SlideyoUQuest2, SlideyoUQuest3],
     keywords: [
       "Website",
       "Task Management",
@@ -119,22 +123,22 @@ const items = [
       "yoUQuest is a platform dedicated to empowering students at the University of Queensland by addressing the challenges of academic burnout. \n\nBefore yoUQuest, managing assignments and tasks was a fragmented, stressful process for students, often leading to poor time management and feelings of overwhelm. Staying motivated through demanding academic schedules while maintaining personal well-being was a daunting challenge. \n\nWith yoUQuest, we’ve revolutionized how students organize and complete their academic tasks. By simply searching for their course, students gain access to a personalized assignment setup based on UQ’s course data. The platform allows them to break down assignments into smaller tasks, track their progress using an innovative battle pass system, and visually experience the satisfaction of “climbing a mountain” as they complete their work. A built-in timer ensures students maintain healthy work habits by recommending breaks, supporting better focus, and preventing burnout.\n\nWhat makes yoUQuest stand out is its focus on holistic student well-being. The platform not only simplifies academic management but also encourages a balanced approach to study by integrating gamified progress tracking with practical burnout prevention strategies. With yoUQuest, students can stay on top of their workload, feel accomplished, and thrive academically without compromising their mental health.",
     project_highlights: [
       {
-        key: "Motion sensors and Interactive Video Playback",
-        img: InsyncAnimation_motion_sensor,
+        key: "Task Management and Reward-Based Battle Pass System",
+        img: BattlePass,
         description:
-          "Motion sensors detect when a user approaches the photo frame, triggering the display of an interactive video. Users can also customize status lights via the mobile app, choosing colors to reflect different moods or states, or use the auto-status feature to display their availability, such as busy, occupied, or relaxing, on the photo frame.",
+          "Integrating task management with a gamified reward system, users can organize their assignments while unlocking steps in the battle pass. Adding more tasks dynamically increases the steps required to complete the battle pass, making progress both engaging and motivating as students work toward stunning mountain rewards.",
       },
       {
-        key: "Posting Family Notes",
-        img: InsyncAnimation_family_note,
+        key: "Time Management and Break Recommendations",
+        img: BattlePass,
         description:
-          "Enhancing family communication, this feature allows users to post notes on the digital photo frame. Notes can be used for reminders, messages, or small thoughtful gestures, fostering a deeper connection among family members.",
+          "A built-in timer divides tasks into manageable intervals. For every 50 minutes of focused work, users are encouraged to take a 10-minute break, promoting healthy study habits and reducing burnout.",
       },
       {
-        key: "Scheduling System Feedback",
-        img: InsyncAnimation_schedule,
+        key: "Mountain Progress Visualization",
+        img: BattlePass,
         description:
-          "An intuitive schedule display helps families stay on top of daily plans. Integrated with existing calendars, the system ensures effortless updates, keeping every member informed and organized.",
+          "The Mountain Page provides a visually engaging representation of users' progress, showcasing their journey as they climb metaphorical summits with every completed task.",
       },
     ],
     video_link: "https://youtu.be/y29mrG8imNg",
@@ -477,7 +481,7 @@ const ProjectDetail = () => {
               </div>
 
               <div className="flex flex-row items-center justify-center mt-8">
-                <div className="basis-2/3">
+                <div className="basis-4/5">
                   <Lottie
                     options={keyfeatureOptions(highlight.img)} // Use the img from the highlight
                     style={{
