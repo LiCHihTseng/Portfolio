@@ -29,7 +29,8 @@ export const Roles =  [
       role_content: [
         "UI Design",
         "UX Design",
-        "User Research"
+        "User Research",
+        "Website Developer"
       ],
       team: "TEAM",
       team_content: [

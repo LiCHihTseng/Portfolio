@@ -2,7 +2,7 @@ import React from 'react'
 import  ItemsContainer   from './ItemsContainer'
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="text-white border-t border-white-500" >
 
       <ItemsContainer />
 

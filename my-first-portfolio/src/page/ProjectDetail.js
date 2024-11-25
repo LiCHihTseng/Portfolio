@@ -34,6 +34,7 @@ import InsyncAnimation_family_note from "../assets/img/GIF/Family_note";
 import InsyncAnimation_schedule from "../assets/img/GIF/Schedule";
 
 import YoUQuestBanner from "../assets/img/GIF/yoUQuest_banner";
+import YoUQuestPhoto from "../assets/img/yoUQuest-photo.svg";
 
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
@@ -104,7 +105,7 @@ const items = [
     project_category: "Side Projects",
     title: "yoUQuest - Your ultimate tool to beat burnout",
     img: YoUQuestBanner,
-    img_2: Insync_photoframe,
+    img_2: YoUQuestPhoto,
 
     slider_img: [SliderImage1, SliderImage2, SliderImage3],
     keywords: [
@@ -138,11 +139,11 @@ const items = [
     ],
     video_link: "https://youtu.be/y29mrG8imNg",
     problem_statements:
-      "Traditional time management apps, often confined to mobile devices, can be both a boon and a bane for family coordination. While they synchronize schedules and organize tasks, they frequently demand constant attention, leading to distractions and fragmented focus. This constant connectivity can isolate family members, prioritizing efficiency over a harmonious family experience. There is a need for a solution that encourages social interaction and collaboration without the intrusive nature of current mobile applications, by integrating technology more subtly and naturally into the home environment.",
+      "University of Queensland students often struggle with academic burnout, driven by overwhelming workloads, poor time management, and the challenge of balancing academic and personal commitments. This results in decreased productivity, mental fatigue, and a lack of motivation, ultimately impacting their academic performance and well-being. Existing tools fail to address these issues holistically, leaving students without effective systems to manage their time and reduce stress.",
     user_need:
-      "The main users of InSync are families seeking a convenient, shared platform for staying connected and informed about each other's schedules, events, and daily moments. This includes both tech-savvy members and those less familiar with technology, such as older adults who may appreciate easy-to-access family updates without needing to use a smartphone or computer.    ",
+      "University of Queensland students often struggle with managing academic workloads while maintaining a healthy balance between studies and personal life. They face challenges such as poor time management, high expectations, and a lack of motivation, leading to burnout and decreased productivity. \n\nThey need a user-friendly platform that simplifies task tracking and promotes better time management. A solution that incorporates engaging visuals, regular reminders for breaks, and rewarding progress can help students stay motivated and achieve their goals efficiently.",
     my_role:
-      "As the Lead UI Designer for InSync, I focused on creating intuitive interfaces for both the mobile app and digital photo frame, collaborating closely with our backend developer, mobile developer, and hardware specialist to integrate key features like motion detection, personalized status lights, and an ambient scheduling display. My primary responsibility was to align design with user needs, ensuring usability across platforms.\n\n In addition to leading the UI design process, I conducted iterative testing to refine the user experience. Delayed feedback required multiple design adjustments, enhancing our product’s relevance to family communication needs but adding pressure to our timeline. I also supported React Native development, gaining valuable coding experience and contributing to a foundation of user-centered, ambient interaction that makes InSync a meaningful tool for family connectivity.",
+      "As the team designer and developer for yoUQuest, I spearheaded efforts to address academic burnout and improve time management among university students. Working closely with UQ students, I conducted user research to uncover pain points and led the design process to ensure our solutions aligned with user needs.\n\nI was responsible for creating intuitive designs for key features, including the task page and reward-based battle pass system, while also developing functionalities for the tutorial page, profile page, and mountain progress page. Additionally, I conducted user testing to gather feedback and continuously refine the website, ensuring it remained intuitive and user-friendly through iterative design improvements.",
     initial_user_test:
       "Our initial concept for the InSync digital picture frame focused solely on uploading and displaying photos. However, after conducting initial user testing, we received valuable feedback that prompted us to rethink the functionality. Users expressed interest in expanding the content beyond photos, specifically requesting the ability to upload videos, similar to how Instagram Stories or BeReal work. \n\nOne suggestion was to enhance family interaction by displaying videos when a user approaches the picture frame. This feedback highlighted the potential for a more dynamic, engaging experience, where videos could be shown as a form of family interaction. This idea was well-received and inspired us to consider how multimedia content could be integrated to make the frame a more interactive and social experience.",
     user_test_title: "Think Aloud Methodology",
@@ -399,7 +400,11 @@ const ProjectDetail = () => {
       </motion.div>
 
       <div className="flex rounded-lg items-center justify-center">
-        <img src={InSync_photo} alt="" className="rounded-lg w-2/3 h-2/3"></img>
+        <img
+          src={projectItem.img_2}
+          alt=""
+          className="rounded-lg w-2/3 h-2/3"
+        ></img>
       </div>
 
       <div className="" style={{ height: "10vh" }}></div>
@@ -418,7 +423,13 @@ const ProjectDetail = () => {
 
       <div className="grid lg:grid-cols-2 m-5 md:grid-cols-1">
         <h5>Users And Need</h5>
-        <p className="text-des">{projectItem.user_need}</p>
+        <div className="gap-2">
+          {projectItem.user_need.split("\n\n").map((paragraph, index) => (
+            <p key={index} className="text-des">
+              {paragraph}
+            </p>
+          ))}
+        </div>
       </div>
 
       <div

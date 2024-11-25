@@ -30,7 +30,9 @@ const items = [
 
 const YoUQuest = () => {
   return (
-    <motion.div
+    <div>
+      {/* Banner and Title */}
+      <motion.div
       className="container mx-auto projectContainer mt-10 overflow-visible static"
       variants={textVariants}
       initial="initial"
@@ -48,6 +50,9 @@ const YoUQuest = () => {
         />
       </div>
     </motion.div>
+    </div>
+
+
   )
 }
 
