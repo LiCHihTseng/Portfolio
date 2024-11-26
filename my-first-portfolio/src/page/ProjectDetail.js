@@ -36,9 +36,15 @@ import InsyncAnimation_schedule from "../assets/img/GIF/Schedule";
 import YoUQuestBanner from "../assets/img/GIF/yoUQuest_banner";
 import YoUQuestPhoto from "../assets/img/yoUQuest-photo.svg";
 import SlideyoUQuest1 from "../assets/img/SlideyoUQuest1.svg";
-import SlideyoUQuest2 from "../assets/img/SlideyoUQuest2.svg" 
-import SlideyoUQuest3 from "../assets/img/SlideyoUQuest3.svg" 
+import SlideyoUQuest2 from "../assets/img/SlideyoUQuest2.svg";
+import SlideyoUQuest3 from "../assets/img/SlideyoUQuest3.svg";
 import BattlePass from "../assets/img/GIF/Battle-pass";
+import TimeRecommed from "../assets/img/GIF/TimeRecommed";
+import Mountain from "../assets/img/GIF/Mountains";
+import YoUQuest_user1 from "../assets/img/GIF/Animation-1732605097051";
+import YoUQuest_user2 from "../assets/img/GIF/Animation-1732605390912";
+import YouUQuest_img1 from "../assets/img/YouUquest_img1.svg";
+import YouUQuest_img2 from "../assets/img/YouUquest_img2.svg";
 
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
@@ -130,13 +136,13 @@ const items = [
       },
       {
         key: "Time Management and Break Recommendations",
-        img: BattlePass,
+        img: TimeRecommed,
         description:
           "A built-in timer divides tasks into manageable intervals. For every 50 minutes of focused work, users are encouraged to take a 10-minute break, promoting healthy study habits and reducing burnout.",
       },
       {
         key: "Mountain Progress Visualization",
-        img: BattlePass,
+        img: Mountain,
         description:
           "The Mountain Page provides a visually engaging representation of users' progress, showcasing their journey as they climb metaphorical summits with every completed task.",
       },
@@ -149,22 +155,22 @@ const items = [
     my_role:
       "As the team designer and developer for yoUQuest, I spearheaded efforts to address academic burnout and improve time management among university students. Working closely with UQ students, I conducted user research to uncover pain points and led the design process to ensure our solutions aligned with user needs.\n\nI was responsible for creating intuitive designs for key features, including the task page and reward-based battle pass system, while also developing functionalities for the tutorial page, profile page, and mountain progress page. Additionally, I conducted user testing to gather feedback and continuously refine the website, ensuring it remained intuitive and user-friendly through iterative design improvements.",
     initial_user_test:
-      "Our initial concept for the InSync digital picture frame focused solely on uploading and displaying photos. However, after conducting initial user testing, we received valuable feedback that prompted us to rethink the functionality. Users expressed interest in expanding the content beyond photos, specifically requesting the ability to upload videos, similar to how Instagram Stories or BeReal work. \n\nOne suggestion was to enhance family interaction by displaying videos when a user approaches the picture frame. This feedback highlighted the potential for a more dynamic, engaging experience, where videos could be shown as a form of family interaction. This idea was well-received and inspired us to consider how multimedia content could be integrated to make the frame a more interactive and social experience.",
-    user_test_title: "Think Aloud Methodology",
+      "Our initial design for yoUQuest aimed to address the core issue of academic burnout among University of Queensland (UQ) students by providing a simple task management tool. However, after conducting user research and interviews, it became clear that students needed more than just a basic task organizer—they wanted a system that motivated them to stay on track while reducing stress. This feedback encouraged us to incorporate gamification elements and personalization features into the design.\n\nFor example, students highlighted that traditional task management apps felt overwhelming or impersonal, particularly during high-pressure periods like exam preparation. They suggested incorporating a visual reward system, leading to the development of the battle pass feature. By integrating task progress with a gamified reward system, students could visually track their achievements, turning task completion into a motivating and rewarding experience. This insight was pivotal in shaping yoUQuest into a tool that not only helps manage academic responsibilities but also fosters engagement and a sense of accomplishment.",
+    user_test_title: "Comprehensive User Insights through Mixed Methods",
     user_test_desc:
-      "We conducted Think Aloud testing to evaluate how users interacted with InSync’s photo frame and mobile app. Users were asked to vocalize their thoughts while performing predefined tasks, providing insight into their understanding and behavior.",
+      "We conducted bodystorming, think-aloud sessions, and task reconstruction interviews to understand how students interact with yoUQuest. These methods provided valuable insights into user behavior, task management, and areas for improvement in the platform.",
     key_findings: [
-      "Initial Confusion: Users often hesitated with features like the looping GIF and motion sensors. This uncertainty required some exploration before they understood how to interact with buttons and navigation.",
-      "Positive Reception: Despite initial challenges, users appreciated features like posting notes for family members, recognizing it as a valuable tool for communication.",
-      "Scheduling System: The scheduling display was seen as useful and intuitive, though users struggled to understand the purpose of the light indicator, speculating incorrectly about its function.",
-      "Aesthetic Feedback: Visible wires on the frame distracted users, suggesting a need for more polished hardware design.",
+      "Task Flow: Users preferred simplified dashboards and visual tools like calendars for managing high-stress periods.",
+      "Progress Tracking: Participants enjoyed gamified milestones but requested options for customization and simpler task management.",
+      "Navigation: Users found course management intuitive, with suggestions for clearer search cues.",
+      "Decision-Making: Students prioritized assignments based on deadlines and appreciated flexibility in planning.",
     ],
-    user_img: InsyncAnimation2,
-    use_img2: InsyncAnimation3,
-    short_img1: InsyncPictureFrame1,
-    short_img2: InsyncPictureFrame2,
+    user_img: YoUQuest_user1,
+    use_img2: YoUQuest_user2,
+    short_img1: YouUQuest_img1,
+    short_img2: YouUQuest_img2,
     conclusion:
-      "Working on the InSync project was a transformative journey that challenged me to design interfaces that seamlessly blend technology with daily life. As the lead UI designer, I focused on creating an ambient and intuitive system that fostered family engagement through features like motion detection and personalized status lights. Balancing user feedback, hardware constraints, and development timelines required innovative problem-solving and adaptability, but the positive reception validated our efforts. This experience honed my technical and design skills while deepening my appreciation for user-centered, responsive solutions, inspiring me to continue crafting meaningful technologies that enhance everyday experiences.",
+      "The yoUQuest task management system has been a resounding success, offering an intuitive platform that empowers students to manage their academic workload efficiently while reducing burnout. By incorporating user feedback and leveraging Figma for high-fidelity prototyping, we created a tool that combines structured task tracking, gamified progress features, and practical break timers to support student well-being.\n\nThis initiative has not only enhanced the user experience but also addressed the challenges of academic burnout through thoughtful design. YoUQuest demonstrates the power of user-centered innovation in creating impactful solutions that promote motivation, organization, and stress management for students.",
   },
   {
     id: 3,
@@ -282,6 +288,13 @@ const ProjectDetail = () => {
   };
   const isSVG =
     typeof projectItem.img === "string" && projectItem.img.endsWith(".svg");
+
+  const isshort1SVG =
+    typeof projectItem.short_img1 === "string" &&
+    projectItem.short_img1.endsWith(".svg");
+  const isshort2SVG =
+    typeof projectItem.short_img2 === "string" &&
+    projectItem.short_img2.endsWith(".svg");
   return (
     <div
       className="container mx-auto projectContainer mt-10 overflow-visible static "
@@ -534,7 +547,7 @@ const ProjectDetail = () => {
                   <Lottie
                     options={defaultOptions3}
                     className="object-cover rounded-lg"
-                    style={{ height: "18.75rem", width: "25rem" }}
+                    style={{ height: "20.75rem", width: "25rem" }}
                   />
                 </div>
 
@@ -542,11 +555,10 @@ const ProjectDetail = () => {
                 <div className="xl:basis-3/5 xl:order-1 md:">
                   <ul style={{ paddingLeft: "20px" }}>
                     {projectItem.key_findings.map((highlight, index) => {
-                      // Split the highlight into words
-                      const words = highlight.split(" ");
-                      // Bold the first two words
-                      const boldText = words.slice(0, 2).join(" ");
-                      const restText = words.slice(2).join(" ");
+                      // Split the highlight into parts using colon (:) as the separator
+                      const parts = highlight.split(":");
+                      const boldText = parts[0]; // Text before the colon
+                      const restText = parts[1] ? parts[1] : ""; // Text after the colon, if it exists
 
                       return (
                         <li
@@ -555,8 +567,8 @@ const ProjectDetail = () => {
                         >
                           <FontAwesomeIcon icon={faCircle} className="fa-2xs" />
                           <span className="ml-5">
-                            <strong className="text-white">{boldText}</strong>{" "}
-                            {restText}
+                            <strong className="text-white">{boldText}</strong>
+                            {restText && `: ${restText}`}
                           </span>
                         </li>
                       );
@@ -572,33 +584,53 @@ const ProjectDetail = () => {
         <div className="">
           <div className="flex flex-wrap  gap-2">
             <div className="flex-auto w-60 rounded-lg">
-              <Lottie
-                options={defaultOptions4}
-                className="object-cover "
-                style={{
-                  width: "80%",
-                  height: "100%",
-                  borderRadius: "1rem",
-                }}
-              />
+              {isshort1SVG ? (
+                <img
+                  src={projectItem.short_img1}
+                  alt=""
+                  className="w-full h-full object-cover rounded-md"
+                />
+              ) : (
+                <Lottie
+                  options={defaultOptions4}
+                  className="rounded-md"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "1rem",
+                  }}
+                />
+              )}
             </div>
             <div className="flex-auto w-60 rounded-lg ">
-              <Lottie
-                options={defaultOptions5}
-                className="object-cover "
-                style={{
-                  width: "80%",
-                  height: "100%",
-                  borderRadius: "1rem",
-                }}
-              />
+              {isshort2SVG ? (
+                <img
+                  src={projectItem.short_img2}
+                  alt=""
+                  className="w-full h-full object-cover rounded-md"
+                />
+              ) : (
+                <Lottie
+                  options={defaultOptions5}
+                  style={{
+                    width: "100%", // Ensures the animation spans the container width
+                    height: "100%", // Matches the container height
+                    borderRadius: "1rem",
+                  }}
+                  className="rounded-md" // Apply Tailwind for consistent border-radius styling
+                />
+              )}
             </div>
           </div>
         </div>
 
         <div className="mt-5">
           <h3>Conclusion</h3>
-          <p className="text-des">{projectItem.conclusion}</p>
+          {projectItem.conclusion.split("\n\n").map((paragraph, index) => (
+            <p key={index} className="text-des">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <div className="" style={{ height: "20vh" }}></div>
