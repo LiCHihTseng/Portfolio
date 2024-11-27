@@ -46,6 +46,15 @@ import YoUQuest_user2 from "../assets/img/GIF/Animation-1732605390912";
 import YouUQuest_img1 from "../assets/img/YouUquest_img1.svg";
 import YouUQuest_img2 from "../assets/img/YouUquest_img2.svg";
 
+import AussieBanner from "../assets/img/GIF/AussieWildlife_banner";
+import AussiePoster from "../assets/img/Aussie_banner.svg";
+import SlideAussie1 from "../assets/img/SlideyoAussie1.svg";
+import SlideAussie2 from "../assets/img/SlideyoAussie2.svg";
+import SlideAussie3 from "../assets/img/SlideyoAussie3.svg";
+import Quiz from "../assets/img/GIF/Quiz";
+import Rpg from "../assets/img/GIF/Rpg";
+import real_time from "../assets/img/GIF/real_time";
+
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
   {
@@ -85,7 +94,9 @@ const items = [
           "An intuitive schedule display helps families stay on top of daily plans. Integrated with existing calendars, the system ensures effortless updates, keeping every member informed and organized.",
       },
     ],
+    video_title: "View Video",
     video_link: "https://youtu.be/y29mrG8imNg",
+    problem_statements_title: "Problem Statements",
     problem_statements:
       "Traditional time management apps, often confined to mobile devices, can be both a boon and a bane for family coordination. While they synchronize schedules and organize tasks, they frequently demand constant attention, leading to distractions and fragmented focus. This constant connectivity can isolate family members, prioritizing efficiency over a harmonious family experience. There is a need for a solution that encourages social interaction and collaboration without the intrusive nature of current mobile applications, by integrating technology more subtly and naturally into the home environment.",
     user_need:
@@ -147,7 +158,9 @@ const items = [
           "The Mountain Page provides a visually engaging representation of users' progress, showcasing their journey as they climb metaphorical summits with every completed task.",
       },
     ],
+    video_title: "View More",
     video_link: "https://youtu.be/y29mrG8imNg",
+    problem_statements_title: "Problem Statements",
     problem_statements:
       "University of Queensland students often struggle with academic burnout, driven by overwhelming workloads, poor time management, and the challenge of balancing academic and personal commitments. This results in decreased productivity, mental fatigue, and a lack of motivation, ultimately impacting their academic performance and well-being. Existing tools fail to address these issues holistically, leaving students without effective systems to manage their time and reduce stress.",
     user_need:
@@ -174,9 +187,67 @@ const items = [
   },
   {
     id: 3,
-    title: "Project Name3",
-    img: "https://picsum.photos/400",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    project_category: "Side Projects",
+    title: "Aussie Wildlife - Discover, Learn, Protect",
+    img: AussieBanner,
+    img_2: AussiePoster,
+
+    slider_img: [SlideAussie1, SlideAussie2, SlideAussie3],
+    keywords: [
+      "Website",
+      "Education Website",
+      "User Experience",
+      "RPG Game Experience",
+      "Children Focused",
+    ],
+    project_sum:
+      "Aussie Wildlife is an innovative educational platform designed to inspire curiosity and appreciation for Australia's unique biodiversity. Through immersive, game-based learning, users can embark on virtual explorations of diverse Australian ecosystems, discovering native species and their ecological significance.\n\nThe platform engages children and educators with RPG-style adventures, interactive challenges, and visually rich content, transforming traditional wildlife education into a captivating journey. Aussie Wildlife emphasizes the importance of conservation by highlighting the role each species plays within its environment, fostering a sense of responsibility and connection to nature.\n\nBy blending technology, education, and entertainment, Aussie Wildlife aims to make learning about Australia's wildlife an exciting and memorable experience for all ages.",
+    project_highlights: [
+      {
+        key: "Real-Time Data Integration with ALA API",
+        img: real_time,
+        description:
+          "The website leverages API data from the Atlas of Living Australia (ALA) to provide a distribution map and regional animal photos. Datasets highlight the most frequently observed wildlife locations across Australian states, enabling children to easily identify hotspots for native animals.",
+      },
+      {
+        key: "Engaging RPG Mode with Accessibility Features",
+        img: Rpg,
+        description:
+          "Aussie Wildlife incorporates an RPG-inspired design to captivate children, featuring Non-Playable Characters (NPCs) that narrate stories about native animals. To enhance accessibility, a read-out function provides audio playback of content, catering to diverse literacy levels while boosting engagement. The addition of outfit customization for NPCs adds another layer of interactivity.",
+      },
+      {
+        key: "Interactive Quiz for Knowledge Reinforcement",
+        img: Quiz,
+        description:
+          "At the end of the website, a simple quiz reinforces learning by assessing children's understanding of the presented content in a fun and interactive manner.",
+      },
+    ],
+    video_title: "View More",
+    video_link: "https://github.com/ChiaWen-Kao/DECO7180-Aussie_Wildlife",
+    problem_statements_title: "THE WHAT",
+    problem_statements:
+      "Aussie Wildlife is a gamified educational platform designed to immerse users in the rich biodiversity of Australia. By combining interactive RPG-style adventures with engaging educational content, it allows students, educators, and nature enthusiasts to explore diverse ecosystems and learn about native fauna in an exciting and meaningful way.\n\nThrough this dynamic platform, users can discover the unique roles Australian wildlife play in their ecosystems, fostering both knowledge and a deeper appreciation for conservation.",
+    user_need:
+      "Aussie Wildlife is designed for children, educators, and nature enthusiasts who are eager to learn about Australia’s unique biodiversity in an engaging way. These users often seek interactive and visually appealing tools that make exploring nature both fun and educational.\n\nThey need a platform that combines gamified experiences with immersive storytelling to captivate their attention while fostering a deeper understanding of Australia’s ecosystems. By making learning accessible and enjoyable, Aussie Wildlife aims to spark curiosity and inspire a lasting appreciation for the country’s native fauna.",
+    my_role:
+      "In the Aussie Wildlife project, I took on key responsibilities, starting with identifying the target audience and crafting detailed user personas, scenarios, and storyboards. This groundwork ensured our platform was tailored to the needs of children and provided a strong direction for the team. I also contributed to the initial prototyping phase by sketching concepts and gathering feedback to refine our design and website plan.\n\nAs one of the primary developers, I collaborated with my teammate to implement core features, including API integration for dynamic content like kangaroo images and habitat information. I also addressed feedback by implementing a read-aloud function, enhancing accessibility for children who preferred auditory learning. Additionally, I focused on improving interactivity through features like kangaroo customization and map exploration, ensuring the final product was both engaging and educational. My efforts helped align the project with our goals and the needs of our target audience.",
+    initial_user_test:
+      "Our initial design for yoUQuest aimed to address the core issue of academic burnout among University of Queensland (UQ) students by providing a simple task management tool. However, after conducting user research and interviews, it became clear that students needed more than just a basic task organizer—they wanted a system that motivated them to stay on track while reducing stress. This feedback encouraged us to incorporate gamification elements and personalization features into the design.\n\nFor example, students highlighted that traditional task management apps felt overwhelming or impersonal, particularly during high-pressure periods like exam preparation. They suggested incorporating a visual reward system, leading to the development of the battle pass feature. By integrating task progress with a gamified reward system, students could visually track their achievements, turning task completion into a motivating and rewarding experience. This insight was pivotal in shaping yoUQuest into a tool that not only helps manage academic responsibilities but also fosters engagement and a sense of accomplishment.",
+    user_test_title: "Comprehensive User Insights through Mixed Methods",
+    user_test_desc:
+      "We conducted bodystorming, think-aloud sessions, and task reconstruction interviews to understand how students interact with yoUQuest. These methods provided valuable insights into user behavior, task management, and areas for improvement in the platform.",
+    key_findings: [
+      "Task Flow: Users preferred simplified dashboards and visual tools like calendars for managing high-stress periods.",
+      "Progress Tracking: Participants enjoyed gamified milestones but requested options for customization and simpler task management.",
+      "Navigation: Users found course management intuitive, with suggestions for clearer search cues.",
+      "Decision-Making: Students prioritized assignments based on deadlines and appreciated flexibility in planning.",
+    ],
+    user_img: YoUQuest_user1,
+    use_img2: YoUQuest_user2,
+    short_img1: YouUQuest_img1,
+    short_img2: YouUQuest_img2,
+    conclusion:
+      "The yoUQuest task management system has been a resounding success, offering an intuitive platform that empowers students to manage their academic workload efficiently while reducing burnout. By incorporating user feedback and leveraging Figma for high-fidelity prototyping, we created a tool that combines structured task tracking, gamified progress features, and practical break timers to support student well-being.\n\nThis initiative has not only enhanced the user experience but also addressed the challenges of academic burnout through thoughtful design. YoUQuest demonstrates the power of user-centered innovation in creating impactful solutions that promote motivation, organization, and stress management for students.",
   },
 ];
 
@@ -409,7 +480,7 @@ const ProjectDetail = () => {
               target="_blank"
               className="hover:cursor-pointer space-x-4 text-white text-2xl"
             >
-              View Video
+              {projectItem.video_title}
             </a>
             <FontAwesomeIcon icon={faChevronRight} />
           </div>
@@ -434,7 +505,7 @@ const ProjectDetail = () => {
         whileInView="animate"
         viewport={{ once: true }}
       >
-        <h5>Problem Statement</h5>
+        <h5>{projectItem.problem_statements_title}</h5>
         <p className="text-des">{projectItem.problem_statements}</p>
       </div>
 

@@ -49,6 +49,26 @@ export const Roles =  [
   
     {
       id: 3,
+      role: "MY ROLE",
+      role_content: [
+        "UI Design",
+        "UX Design",
+        "User Research",
+        "Website Developer"
+      ],
+      team: "TEAM",
+      team_content: [
+        "UI & UX Designer",
+        "Website Developer",
   
+      ],
+      year: "YEAR",
+      year_content: ["Aug - Nov 2023"],
+      title: "TOOLS",
+      content: [
+        "Figma",
+        "HTML",
+        "Javascript",
+      ]
     }
   ];

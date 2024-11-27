@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 import Insync from "../assets/img/InSync-logo.png";
 import yoUQuest from "../assets/img/yoUQuest.png";
+import AussieWild from "../assets/img/AussieWildlife.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRight} from "@fortawesome/free-solid-svg-icons"
 
@@ -47,14 +48,14 @@ const items = [
     title: "yoUQuest",
     img: yoUQuest,
     platform: ["Website","ReactJS", ],
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    desc: "yoUQuest is a gamified task management platform that helps university students combat academic burnout through progress tracking, customizable goals, and break reminders, promoting balance and productivity.",
   },
   {
     id: 3,
-    title: "Project Name3",
-    img: "https://picsum.photos/400",
-    platform: "website",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    title: "Aussie Wildlife",
+    img: AussieWild,
+    platform: ["Website", "JavaScript"],
+    desc: "Aussie Wildlife is an interactive educational platform that uses game-based learning to inspire curiosity and appreciation for Australia's unique biodiversity through immersive RPG-style exploration.",
   },
 ];
 
@@ -136,19 +137,6 @@ const Single = ({ item }) => {
       </div>
     </motion.div>
 
-    // <motion.div className="w-[600[x] h-auto card-bg rounded-3xl shadow-md gap-10" onClick={handleClick} ref={ref} variants={variants} initial="initial" whileInView="animate">
-    //   <div className="grid grid-cols-2 gap-10">
-    //     <div className="w-full h-full">
-    //       <img className="w-full h-full aspect-square object-cover object center rounded 3-xl" src={item.img} alt={item.title}/>
-    //     </div>
-    //     <div className="flex flex-col">
-    //       <div className="flex flex-col gap-5">
-    //         <h2 className="text-3xl font-bold">{item.title}</h2>
-    //         <p className="text-sm font-normal">{item.desc}</p>
-    //       </div>
-
-    //     </div>
-    //   </div>
   );
 };
 export const CardView = ({}) => {
