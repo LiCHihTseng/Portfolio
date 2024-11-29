@@ -57,6 +57,8 @@ import real_time from "../assets/img/GIF/real_time";
 import Aussie_short1 from "../assets/img/GIF/Aussie_short1";
 import Aussie_short2 from "../assets/img/GIF/Aussie_short2";
 
+import NextProjectButton from "../components/nextproject/NextProject";
+
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
   {
@@ -278,7 +280,7 @@ const ProjectDetail = () => {
   useEffect(() => {
     // Scroll to top when the component is mounted
     window.scrollTo(0, 0);
-  }, [location]);
+  }, [id]);
 
   // Helper function to find the item by ID if location.state is not available
   const getItemById = (id) => {
@@ -717,10 +719,7 @@ const ProjectDetail = () => {
             }}
             style={{ backgroundColor: "#333338" }}
           >
-            <div className="flex justify-center items-center p-4 gap-4">
-              <a className=" text-3xl text-white">Next Project</a>
-              <FontAwesomeIcon icon={faArrowCircleRight} className="fa-2x" />
-            </div>
+            <NextProjectButton/>
           </motion.div>
         </div>
 

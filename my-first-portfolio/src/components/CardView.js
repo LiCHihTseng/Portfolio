@@ -150,7 +150,7 @@ export const CardView = ({}) => {
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
   return (
-    <Container>
+    <Container id="Projects">
       <motion.h1 variants={variants} initial="initial" whileInView="animate" viewport={{once:true}}>
         My Project
       </motion.h1>

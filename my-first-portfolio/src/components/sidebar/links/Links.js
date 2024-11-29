@@ -26,7 +26,7 @@ const itemVariants = {
   },
 };
 const Links = () => {
-  const items = ["Homepage", "About", "Projects"];
+  const items = ["Homepage", "About(Locked)", "Projects"];
   return (
     <motion.div className="links" variants={variants}>
       {items.map((item) => (

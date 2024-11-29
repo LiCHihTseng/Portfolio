@@ -69,10 +69,10 @@ export const Banner = () => {
 
   return (
     <motion.div variants={textVariants} initial="initial" animate="animate">
-      <section className="banner" id="home">
+      <section className="banner" id="Homepage">
         <Container className="banner">
           <Row className="align-items-center">
-            <Col lg={10} md={10} sm={10}>
+            <Col lg={11} md={11} sm={11}>
               <TrackVisibility>
                 {({ isVisible }) => (
                   <div
@@ -103,7 +103,7 @@ export const Banner = () => {
 
           <Row>
             <Col md="auto">
-              <button onClick={() => console.log("connect")}>
+              <button onClick={() => window.location.href = "mailto:zxcjason234@gmail.com"}>
                 Contact me! <ArrowRightCircle size={25} />
               </button>
             </Col>

@@ -47,10 +47,10 @@ export const NavBar = () => {
           <motion.a href="https://www.linkedin.com/in/li-chih-tseng-22933319a/c" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}} className="no-underline text-white">
           <p>LINKEDLN</p>
           </motion.a>
-          <motion.a href="https://www.linkedin.com/in/li-chih-tseng-22933319a/c" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}} className="no-underline text-white">
+          <motion.a href="https://www.instagram.com/jason__0810/" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}} className="no-underline text-white">
             <p>INSTAGRAM</p>
           </motion.a>
-          <motion.a href="#" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}} className="no-underline text-white">
+          <motion.a href="https://drive.google.com/file/d/1K5wnMjp5de3kSs0gGXtRwb9IVj5UjUjA/view?usp=sharing" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}} className="no-underline text-white">
           <p>MY CV</p>
           </motion.a>
         </div>
