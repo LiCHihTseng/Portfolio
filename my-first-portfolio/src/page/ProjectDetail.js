@@ -54,6 +54,8 @@ import SlideAussie3 from "../assets/img/SlideyoAussie3.svg";
 import Quiz from "../assets/img/GIF/Quiz";
 import Rpg from "../assets/img/GIF/Rpg";
 import real_time from "../assets/img/GIF/real_time";
+import Aussie_short1 from "../assets/img/GIF/Aussie_short1";
+import Aussie_short2 from "../assets/img/GIF/Aussie_short2";
 
 // Mock data, should be imported or retrieved from a context/store in a real app
 const items = [
@@ -232,22 +234,22 @@ const items = [
     my_role:
       "In the Aussie Wildlife project, I took on key responsibilities, starting with identifying the target audience and crafting detailed user personas, scenarios, and storyboards. This groundwork ensured our platform was tailored to the needs of children and provided a strong direction for the team. I also contributed to the initial prototyping phase by sketching concepts and gathering feedback to refine our design and website plan.\n\nAs one of the primary developers, I collaborated with my teammate to implement core features, including API integration for dynamic content like kangaroo images and habitat information. I also addressed feedback by implementing a read-aloud function, enhancing accessibility for children who preferred auditory learning. Additionally, I focused on improving interactivity through features like kangaroo customization and map exploration, ensuring the final product was both engaging and educational. My efforts helped align the project with our goals and the needs of our target audience.",
     initial_user_test:
-      "Our initial design for yoUQuest aimed to address the core issue of academic burnout among University of Queensland (UQ) students by providing a simple task management tool. However, after conducting user research and interviews, it became clear that students needed more than just a basic task organizer—they wanted a system that motivated them to stay on track while reducing stress. This feedback encouraged us to incorporate gamification elements and personalization features into the design.\n\nFor example, students highlighted that traditional task management apps felt overwhelming or impersonal, particularly during high-pressure periods like exam preparation. They suggested incorporating a visual reward system, leading to the development of the battle pass feature. By integrating task progress with a gamified reward system, students could visually track their achievements, turning task completion into a motivating and rewarding experience. This insight was pivotal in shaping yoUQuest into a tool that not only helps manage academic responsibilities but also fosters engagement and a sense of accomplishment.",
-    user_test_title: "Comprehensive User Insights through Mixed Methods",
+      "Our early design concept for AussieWildlife sought to create a fun and interactive educational platform to promote an appreciation for Australian wildlife among children. While the initial sketches and paper prototype focused on simple map interactions and species information, user feedback revealed that young users desired a more engaging and playful experience that would allow for exploration and learning through interaction.\n\nFor instance, early testers found static content delivery (e.g., images and text) insufficiently immersive. This feedback led us to integrate gamification elements, such as a customizable kangaroo character and an interactive map with flag icons that link to species-specific information. Additionally, we decided to incorporate a quiz feature, enabling children to test their knowledge and reinforce what they learned. This insight was instrumental in transforming AussieWildlife into an engaging platform tailored to children's learning preferences.",
+    user_test_title: "Iterative Refinement Through Prototyping and User Feedback",
     user_test_desc:
-      "We conducted bodystorming, think-aloud sessions, and task reconstruction interviews to understand how students interact with yoUQuest. These methods provided valuable insights into user behavior, task management, and areas for improvement in the platform.",
+      "We employed mixed methods, including paper prototyping, digital prototype evaluations, and feedback sessions with peers and tutors, to gather insights into user preferences and interaction patterns. These methods helped us iteratively refine the platform's design, ensuring it met the needs of our target audience.",
     key_findings: [
-      "Task Flow: Users preferred simplified dashboards and visual tools like calendars for managing high-stress periods.",
-      "Progress Tracking: Participants enjoyed gamified milestones but requested options for customization and simpler task management.",
-      "Navigation: Users found course management intuitive, with suggestions for clearer search cues.",
-      "Decision-Making: Students prioritized assignments based on deadlines and appreciated flexibility in planning.",
+      "Interactivity and Engagement: Users emphasized the importance of interactive features, such as the map page with clickable flags and a customizable kangaroo character, to make learning enjoyable.",
+      "Educational Content: Children and testers highlighted the need for a read-aloud feature to aid younger users who may struggle with reading.",
+      "Navigation and Design: Testers appreciated the clean and intuitive layout but suggested smoother transitions between pages, which we addressed in the digital prototype phase.",
+      "Gamification Appeal: The kangaroo customization feature and the quiz were praised for their ability to make learning playful and memorable, encouraging return visits to the website.",
     ],
-    user_img: YoUQuest_user1,
+    user_img: InsyncAnimation2,
     use_img2: YoUQuest_user2,
-    short_img1: YouUQuest_img1,
-    short_img2: YouUQuest_img2,
+    short_img1: Aussie_short1,
+    short_img2: Aussie_short2,
     conclusion:
-      "The yoUQuest task management system has been a resounding success, offering an intuitive platform that empowers students to manage their academic workload efficiently while reducing burnout. By incorporating user feedback and leveraging Figma for high-fidelity prototyping, we created a tool that combines structured task tracking, gamified progress features, and practical break timers to support student well-being.\n\nThis initiative has not only enhanced the user experience but also addressed the challenges of academic burnout through thoughtful design. YoUQuest demonstrates the power of user-centered innovation in creating impactful solutions that promote motivation, organization, and stress management for students.",
+      "Working on the Aussie Wildlife project has been an incredible journey of creativity, collaboration, and innovation. From defining our target audience to implementing engaging features like interactive maps, gamified learning, and a read-aloud function, we aimed to create an educational platform that makes learning about Australia's wildlife fun and accessible for children.\n\nThe challenges—like mastering new tools, overcoming technical hurdles, and ensuring the design resonated with our young audience—pushed us to refine our skills and problem-solve effectively. The positive feedback from tutors, classmates, and testing participants validated our efforts and reinforced the project's impact.\n\nSeeing the final prototype come to life, complete with interactive elements and thoughtful educational design, has been immensely rewarding. This experience has deepened my understanding of user-centered design and strengthened my passion for creating digital solutions that educate, engage, and inspire.",
   },
 ];
 
@@ -609,6 +611,7 @@ const ProjectDetail = () => {
 
         <div>
           <h2 className="mt-5">User evaluation & User test</h2>
+          <h5 className="mt-5">{projectItem.user_test_title}</h5>
           <p className="text-des">{projectItem.user_test_desc}</p>
           <div className="mt-5 ">
             <div>
@@ -654,7 +657,7 @@ const ProjectDetail = () => {
         <div className="" style={{ height: "20vh" }}></div>
         <div className="">
           <div className="flex flex-wrap  gap-2">
-            <div className="flex-auto w-60 rounded-lg">
+            <div className="flex-auto xl:w-60 lg:w-90 lg: h-90 rounded-lg">
               {isshort1SVG ? (
                 <img
                   src={projectItem.short_img1}
@@ -673,7 +676,7 @@ const ProjectDetail = () => {
                 />
               )}
             </div>
-            <div className="flex-auto w-60 rounded-lg ">
+            <div className="flex-auto xl:w-60 lg:w-90 lg:h-90 rounded-lg ">
               {isshort2SVG ? (
                 <img
                   src={projectItem.short_img2}

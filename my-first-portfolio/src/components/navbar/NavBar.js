@@ -44,14 +44,14 @@ export const NavBar = () => {
           transition={{ duration: 1 }}
         />
         <div className="social" >
-          <motion.a href="#" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}}>
-            <img src={navIcon1} alt="" />
+          <motion.a href="https://www.linkedin.com/in/li-chih-tseng-22933319a/c" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}} className="no-underline text-white">
+          <p>LINKEDLN</p>
           </motion.a>
-          <motion.a href="#" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}}>
-            <img src={navIcon2} alt="" />
+          <motion.a href="https://www.linkedin.com/in/li-chih-tseng-22933319a/c" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}} className="no-underline text-white">
+            <p>INSTAGRAM</p>
           </motion.a>
-          <motion.a href="#" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}}>
-            <img src={navIcon3} alt="" />
+          <motion.a href="#" whileHover={{scale: 1.4}} whileTap={{scale: 0.9}} className="no-underline text-white">
+          <p>MY CV</p>
           </motion.a>
         </div>
       </div>
